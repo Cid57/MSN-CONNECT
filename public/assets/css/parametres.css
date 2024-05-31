@@ -1,6 +1,6 @@
 body {
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
-
+    font-family: 'Arial', sans-serif;
 }
 
 .gestion-administrateur {
@@ -11,7 +11,7 @@ body {
     padding: 1rem 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-
+    margin-bottom: 30px;
 }
 
 .gestion-administrateur img {
@@ -61,87 +61,132 @@ body {
     }
 }
 
-
-
-
-
-
-
-
-.content {
+.container-modifier-mdp {
     display: flex;
     flex-direction: column;
-    margin: auto;
-    padding: 2rem;
-    max-width: 600px;
-    background: #fff;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 2rem;
-
+    max-width: 500px;
+    margin: auto;
+    width: 100%;
+    /* S'assurer que le conteneur prend toute la largeur disponible */
+    box-sizing: border-box;
+    /* Inclure le padding et les bordures dans la largeur */
 }
 
-.content strong {
-    color: #03a9f4;
-    font-size: 20px;
+.content {
+    margin-bottom: 20px;
+    width: 100%;
+    /* S'assurer que le conteneur prend toute la largeur disponible */
 }
-
-.content:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
 
 .content p {
-    font-size: 1.1rem;
-    margin: 8px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+
 }
 
-.content .btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem 0;
-    background-color: #4d5ea8;
-    color: white;
-    text-decoration: none;
+.content p strong {
+    flex-shrink: 0;
+    /* Ne pas permettre au texte fort de rétrécir */
+    width: 150px;
+    /* Largeur fixe pour aligner tous les labels */
+}
+
+.container-modifier-mdp form {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.container-modifier-mdp label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #555;
+}
+
+.container-modifier-mdp input[type="file"] {
+    margin-bottom: 20px;
+}
+
+.container-modifier-mdp input[type="password"],
+.container-modifier-mdp input[type="text"] {
+    width: 100%;
+    /* Utiliser 100% de la largeur du conteneur parent */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-
+    box-sizing: border-box;
+    /* Inclure le padding et les bordures dans la largeur */
+    font-size: 14px;
+    color: #333;
 }
 
-.content .btn:hover {
-    background-color: #3b4a7e;
+.container-modifier-mdp input[type="password"]:focus,
+.container-modifier-mdp input[type="text"]:focus {
+    border-color: #4A90E2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.container-modifier-mdp button {
+    background-color: #4A90E2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    /* Utiliser 100% de la largeur du conteneur parent */
+    box-sizing: border-box;
+    /* Inclure le padding et les bordures dans la largeur */
+    margin-bottom: 20px;
+}
+
+.container-modifier-mdp button:hover {
+    background-color: #357ABD;
     transform: translateY(-2px);
 }
 
-
-@media (max-width: 600px) {
-    .content {
-        padding: 1rem;
-    }
-
-    .content p {
-        font-size: 1rem;
-    }
-
-    .gestion-administrateur h1 {
-        font-size: 1.5rem;
-    }
-
-    .gestion-administrateur img {
-        height: 40px;
-    }
+.message {
+    color: green;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-#avatarInput {
-    margin-top: 10px;
+.avatar {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-#avatarPreview {
-    cursor: pointer;
-    width: 100px;
-    height: 100px;
+.avatar img {
     border-radius: 50%;
-    object-fit: cover;
-    margin-top: 10px;
+    border: 2px solid #4A90E2;
+}
+
+@media (max-width: 768px) {
+    .container-modifier-mdp {
+        padding: 10px;
+    }
+
+    .container-modifier-mdp input,
+    .container-modifier-mdp button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .content {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
 }

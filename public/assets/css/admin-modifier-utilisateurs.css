@@ -1,7 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
-
 }
 
 .gestion-administrateur {
@@ -12,7 +11,6 @@ body {
     padding: 1rem 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-
 }
 
 .gestion-administrateur img {
@@ -62,8 +60,6 @@ body {
     }
 }
 
-
-
 .container-modifier {
     display: flex;
     flex-direction: column;
@@ -71,13 +67,34 @@ body {
     margin: 2rem auto;
 }
 
+.recherche-barre {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 50%;
+}
 
+.recherche-barre input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    width: 50%;
+}
 
-/* Ajustement pour les petits écrans */
-@media (max-width: 768px) {
-    .container-modifier {
-        margin: 20px 10px;
-    }
+.recherche-barre button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: #4A90E2;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s ease;
+}
+
+.recherche-barre button:hover {
+    background-color: #357ABD;
 }
 
 .banderole-modifier-utilisateurs {
@@ -96,36 +113,46 @@ body {
     font-size: 28px;
     color: #333;
     font-weight: 700;
-
     letter-spacing: 1px;
 }
 
-
-
-
 /* Styles pour le tableau */
-table {
+.table-container {
+    width: 70%;
+    margin: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-height: 500px;
+    /* Ajout d'une hauteur maximale */
+    overflow-y: auto;
+    /* Permet le défilement vertical */
+}
 
+table {
     width: 100%;
     border-collapse: collapse;
-    font-family: 'Roboto', sans-serif;
 }
 
 thead th {
     background-color: #171c32;
     color: white;
     padding: 10px;
+    position: sticky;
+
+    top: 0;
+    z-index: 1;
 }
 
 tbody tr {
     transition: background-color 0.3s ease, transform 0.3s ease;
-
+    text-align: center;
 }
 
 tbody tr:hover {
     background-color: #f1f1f1;
     transform: translateY(-2px);
-
 }
 
 tbody td {
@@ -148,39 +175,15 @@ button:hover {
     background-color: #357ABD;
 }
 
-
-
-
-
-
-tr {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-
-table {
-    margin: auto;
-    width: 90%;
-    border-collapse: collapse;
-    margin-bottom: 2rem;
-    background-color: white;
-}
-
 table th,
 table td {
     padding: 1rem;
-    text-align: left;
+    /* text-align: left; */
     border-bottom: 1px solid #e0e0e0;
 }
 
-
-
-
-
 table td:last-child {
     text-align: center;
-
 }
 
 table button {

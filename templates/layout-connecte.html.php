@@ -9,6 +9,7 @@ $utilisateur = $query->fetch();
 
 $prenomUtilisateur = $utilisateur['prenom'];
 $nomUtilisateur = $utilisateur['nom'];
+$avatarUtilisateur = $utilisateur['avatar'];
 
 $dateCreationUtilisateur = $utilisateur['date_de_creation'];
 $statutUtilisateur = ['nom' => $utilisateur['nom_statut'], 'disponible' => $utilisateur['est_disponible']];
@@ -33,7 +34,6 @@ $query = $dbh->query("SELECT * FROM channel
                         ORDER BY date_heure_dernier_message DESC 
                         LIMIT 10");
 $groupes = $query->fetchAll();
-
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +75,10 @@ $groupes = $query->fetchAll();
                 </div>
 
                 <div class="menu-list">
-                    <h4><?= "$prenomUtilisateur $nomUtilisateur" ?> </h4>
+                    <?php if (!empty($avatarUtilisateur)) : ?>
+                        <img src="uploads/<?= htmlspecialchars($avatarUtilisateur) ?>" alt="Avatar de l'utilisateur" class="user-avatar">
+                    <?php endif; ?>
+                    <h4><?= "$prenomUtilisateur $nomUtilisateur" ?></h4>
                     <a href="/?page=administrateur" class="btn"><img src="assets/img/reglages.png" alt="reglage-admin"></a>
                     <a href="/?page=parametres"><img src="/assets/img/utilisateur.png" alt="utilisateur" /></a>
                     <a href="scripts.php?script=deconnexion"><img src="/assets/img/se-deconnecter.png" alt="logo-deconnexion"></a>
@@ -96,13 +99,15 @@ $groupes = $query->fetchAll();
                         </button>
                     </div>
 
+
                     <?php foreach ($discussions as $discussion) : ?>
                         <div class="message-prive-container">
                             <a href="/index.php?page=conversation&id_channel=<?= $discussion['id_channel'] ?>" class="message-prive-link"><?= htmlspecialchars($discussion['prenom_destinataire'] . ' ' . $discussion['nom_destinataire']) ?></a>
                             <!-- Lien de suppression de la conversation -->
-                            <a href="/?page=delete-conversation&id_channel=<?= $discussion['id_channel'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette conversation ?');" class="delete-conversation-link">X</a>
+                            <a href="/scripts.php?script=archiver-conversation&id_channel=<?= $discussion['id_channel'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette conversation ?');" class="archiver-conversation-link">X</a>
                         </div>
                     <?php endforeach; ?>
+
                 </div>
                 <div class="bottom-block">
                     <h4>Espaces groupe</h4>

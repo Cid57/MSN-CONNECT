@@ -10,24 +10,32 @@
 <!-- Fin de banderole -->
 
 <div class="container-modifier">
-    <table>
-        <thead>
-            <tr>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Mail</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($utilisateurs as $utilisateur) : ?>
+    <div class="recherche-barre">
+        <input type="text" id="recherche-utilisateur" placeholder="Rechercher un utilisateur...">
+        <button type="button" id="recherche-button">Rechercher</button>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($utilisateur['prenom']) ?></td>
-                    <td><?= htmlspecialchars($utilisateur['nom']) ?></td>
-                    <td><?= htmlspecialchars($utilisateur['email']) ?></td>
-                    <td><a href="/?page=admin-modifier-utilisateur&id=<?= $utilisateur['id_utilisateur'] ?>"><button>Modifier</button></a></td>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Mail</th>
+                    <th>Action</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($utilisateurs as $utilisateur) : ?>
+                    <tr>
+                        <td><?= htmlspecialchars($utilisateur['prenom']) ?></td>
+                        <td><?= htmlspecialchars($utilisateur['nom']) ?></td>
+                        <td><?= htmlspecialchars($utilisateur['email']) ?></td>
+                        <td><a href="/?page=admin-modifier-utilisateur&id=<?= $utilisateur['id_utilisateur'] ?>"><button>Modifier</button></a></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<script src="assets/js/rechercher-utilisateurs.js"></script>

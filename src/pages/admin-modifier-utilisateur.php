@@ -41,7 +41,7 @@ if ($idUtilisateurModifier) {
         ]);
 
         // Rediriger après mise à jour
-        header('Location: /?page=administrateur');
+        header('Location: /?page=admin-modifier-utilisateurs');
         exit;
     }
 } else {
