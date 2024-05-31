@@ -1,0 +1,147 @@
+body {
+    background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
+
+}
+
+.gestion-administrateur {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+}
+
+.gestion-administrateur img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+.gestion-administrateur h1 {
+    flex-grow: 1;
+    margin: 0;
+    color: #4A90E2;
+    font-family: "Sedan SC", serif;
+    font-size: 32px;
+    text-align: center;
+}
+
+.gestion-administrateur .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.gestion-administrateur .actions a img {
+    height: 46px;
+    width: 44px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gestion-administrateur .actions a img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .gestion-administrateur {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .gestion-administrateur img,
+    .gestion-administrateur h1 {
+        margin: 10px 0;
+    }
+
+    .gestion-administrateur .actions {
+        margin-top: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 2rem;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+
+}
+
+.content strong {
+    color: #03a9f4;
+    font-size: 20px;
+}
+
+.content:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.content p {
+    font-size: 1.1rem;
+    margin: 8px;
+}
+
+.content .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    background-color: #4d5ea8;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+}
+
+.content .btn:hover {
+    background-color: #3b4a7e;
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 600px) {
+    .content {
+        padding: 1rem;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+
+    .gestion-administrateur h1 {
+        font-size: 1.5rem;
+    }
+
+    .gestion-administrateur img {
+        height: 40px;
+    }
+}
+
+#avatarInput {
+    margin-top: 10px;
+}
+
+#avatarPreview {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 10px;
+}

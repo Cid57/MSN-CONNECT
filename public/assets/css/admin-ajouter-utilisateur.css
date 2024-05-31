@@ -1,0 +1,175 @@
+body {
+
+    background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
+
+}
+
+.gestion-administrateur {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+}
+
+.gestion-administrateur img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+
+.gestion-administrateur h1 {
+    flex-grow: 1;
+    margin: 0;
+    color: #4A90E2;
+    font-family: "Sedan SC", serif;
+    font-size: 32px;
+    text-align: center;
+}
+
+.gestion-administrateur .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.gestion-administrateur .actions a img {
+    height: 46px;
+    width: 44px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gestion-administrateur .actions a img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .gestion-administrateur {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .gestion-administrateur img,
+    .gestion-administrateur .icon {
+        margin: 10px 0;
+    }
+
+    .gestion-administrateur .actions {
+        margin-top: 10px;
+    }
+}
+
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    max-width: 700px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    flex: 1;
+    justify-content: center;
+}
+
+.content:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+.user-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.user-form .form-group label {
+    font-weight: bold;
+}
+
+.user-form .form-group input[type="text"],
+.user-form .form-group input[type="email"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+.user-form .form-group .error {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+#inscriptionAdminBouton {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #4d5ea8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#inscription-admin-bouton:hover {
+    background-color: #3b4a7e;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .content {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .content h2 {
+        font-size: 1.5rem;
+    }
+
+    .gestion-administrateur h1 {
+        font-size: 1.5rem;
+    }
+
+    .gestion-administrateur img {
+        height: 40px;
+    }
+
+    .icon {
+        height: 60px;
+    }
+}
+
+.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.errors .error {
+    margin-bottom: 5px;
+}

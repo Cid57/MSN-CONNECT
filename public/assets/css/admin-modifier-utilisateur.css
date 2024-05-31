@@ -1,0 +1,207 @@
+body {
+    background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
+
+}
+
+.gestion-administrateur {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+}
+
+.gestion-administrateur img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+
+
+.gestion-administrateur h1 {
+    flex-grow: 1;
+    margin: 0;
+    color: #4A90E2;
+    font-family: "Sedan SC", serif;
+    font-size: 32px;
+    text-align: center;
+}
+
+.gestion-administrateur .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.gestion-administrateur .actions a img {
+    height: 46px;
+    width: 44px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gestion-administrateur .actions a img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .gestion-administrateur {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .gestion-administrateur img,
+    .gestion-administrateur .user-icon {
+        margin: 10px 0;
+    }
+
+    .gestion-administrateur .actions {
+        margin-top: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Style pour le conteneur de modification */
+.container-modifier {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 1030px;
+    margin: 2rem auto;
+    transition: all 0.3s ease;
+    overflow-x: auto;
+
+
+}
+
+.container-modifier:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Style pour le tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+}
+
+table thead {
+    background-color: #f4f4f4;
+}
+
+table thead th {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    font-size: 16px;
+}
+
+table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+table tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody td input[type="text"],
+table tbody td input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.submit-button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.submit-button:hover {
+    background-color: #357ABD;
+}
+
+
+
+@media (max-width: 768px) {
+    .gestion-administrateur {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .gestion-administrateur div {
+        justify-content: center;
+    }
+
+    .banderole-modifier-utilisateur {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    table thead {
+        display: none;
+
+    }
+
+    table,
+    table tbody,
+    table tr,
+    table td {
+        display: block;
+        width: 100%;
+    }
+
+    table tbody tr {
+        margin-bottom: 15px;
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    table tbody td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    table tbody td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,123 @@
+body {
+
+    background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
+
+}
+
+.gestion-administrateur {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+}
+
+.gestion-administrateur img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+.gestion-administrateur h1 {
+    flex-grow: 1;
+    margin: 0;
+    color: #4A90E2;
+    font-family: "Sedan SC", serif;
+    font-size: 32px;
+    text-align: center;
+}
+
+.gestion-administrateur .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.gestion-administrateur .actions a img {
+    height: 46px;
+    width: 44px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gestion-administrateur .actions a img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .gestion-administrateur {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .gestion-administrateur img,
+    .gestion-administrateur h1 {
+        margin: 10px 0;
+    }
+
+    .gestion-administrateur .actions {
+        margin-top: 10px;
+    }
+}
+
+
+
+/* Style pour la section globale des canaux */
+.modifier-channel {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 2rem auto;
+    overflow: hidden;
+
+}
+
+/* Style pour le titre de la section */
+.modifier-channel .modifier-section h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Style pour la liste des canaux */
+.modifier-channel .modifier-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style pour chaque élément de la liste */
+.modifier-channel .modifier-list li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style pour les boutons de modification */
+.modifier-channel .btn-modifier {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modifier-channel .btn-modifier:hover {
+    background-color: #0056b3;
+}
+
+/* Style pour le formulaire */
+.modifier-channel form {
+    display: inline;
+}
