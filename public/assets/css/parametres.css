@@ -1,6 +1,6 @@
 body {
+
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
-    font-family: 'Arial', sans-serif;
 }
 
 .gestion-administrateur {
@@ -61,79 +61,112 @@ body {
     }
 }
 
-.container-modifier-mdp {
+.container-profile {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 2rem auto;
+    width: 60%;
+    gap: 40px;
+
+}
+
+.content-block,
+.form-block {
+    background-color: #ffffff;
     padding: 20px;
-    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: auto;
-    width: 100%;
-    /* S'assurer que le conteneur prend toute la largeur disponible */
-    box-sizing: border-box;
-    /* Inclure le padding et les bordures dans la largeur */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
 .content {
-    margin-bottom: 20px;
-    width: 100%;
-    /* S'assurer que le conteneur prend toute la largeur disponible */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .content p {
-    margin: 10px 0;
+    margin: 0;
     font-size: 16px;
     color: #333;
+}
+
+.content strong {
+    font-weight: bold;
+    color: #4A90E2;
+}
+
+.content form {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.content form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.content form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.content form button {
+    background-color: #4A90E2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: auto;
 
 }
 
-.content p strong {
-    flex-shrink: 0;
-    /* Ne pas permettre au texte fort de rétrécir */
-    width: 150px;
-    /* Largeur fixe pour aligner tous les labels */
+.content form button:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+}
+
+.container-modifier-mdp {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
 .container-modifier-mdp form {
-    width: 100%;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .container-modifier-mdp label {
     display: block;
     margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 14px;
-    color: #555;
+
 }
 
-.container-modifier-mdp input[type="file"] {
-    margin-bottom: 20px;
+.container-modifier-mdp h2 {
+    font-family: "Sedan SC", serif;
 }
 
-.container-modifier-mdp input[type="password"],
-.container-modifier-mdp input[type="text"] {
-    width: 100%;
-    /* Utiliser 100% de la largeur du conteneur parent */
+.container-modifier-mdp input {
+    width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
-    /* Inclure le padding et les bordures dans la largeur */
-    font-size: 14px;
-    color: #333;
-}
-
-.container-modifier-mdp input[type="password"]:focus,
-.container-modifier-mdp input[type="text"]:focus {
-    border-color: #4A90E2;
-    outline: none;
-    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
 }
 
 .container-modifier-mdp button {
@@ -146,10 +179,8 @@ body {
     font-size: 16px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     width: 100%;
-    /* Utiliser 100% de la largeur du conteneur parent */
-    box-sizing: border-box;
-    /* Inclure le padding et les bordures dans la largeur */
-    margin-bottom: 20px;
+    margin-top: auto;
+
 }
 
 .container-modifier-mdp button:hover {
@@ -164,29 +195,71 @@ body {
     text-align: center;
 }
 
-.avatar {
-    text-align: center;
-    margin-bottom: 20px;
-}
 
 .avatar img {
-    border-radius: 50%;
-    border: 2px solid #4A90E2;
+    width: 100px;
+    height: 100px;
 }
 
 @media (max-width: 768px) {
-    .container-modifier-mdp {
-        padding: 10px;
+    .container-profile {
+        flex-direction: column;
+        width: 80%;
+        gap: 20px;
+
     }
 
-    .container-modifier-mdp input,
-    .container-modifier-mdp button {
-        padding: 8px;
-        font-size: 14px;
+    .content-block,
+    .form-block {
+        margin-right: 0;
+        margin-bottom: 20px;
     }
+}
 
-    .content {
-        padding: 10px;
-        margin-bottom: 10px;
-    }
+
+
+
+
+/* 
+.mdp-icon {
+    position: relative;
+    top: -42px;
+    right: 10px;
+    color: red;
+}
+
+.mdp-icon:hover {
+    color: rgb(221, 136, 136);
+}
+
+.eye,
+.eye-off {
+    position: absolute;
+    right: 24px;
+    top: 10px;
+    cursor: pointer;
+} */
+
+
+.group {
+    position: relative;
+}
+
+.mdp-icon {
+    position: absolute;
+    top: 40%;
+    right: 30px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: red;
+}
+
+.mdp-icon:hover {
+    color: rgb(221, 136, 136);
+}
+
+.mdp-icon .eye,
+.mdp-icon .eye-off {
+    width: 20px;
+    height: 20px;
 }

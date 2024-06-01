@@ -1,9 +1,8 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
+
+
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
-    color: #333;
+
 }
 
 .gestion-administrateur {

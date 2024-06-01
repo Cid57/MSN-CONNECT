@@ -19,6 +19,11 @@
         <button type="button" id="recherche-button">Rechercher</button>
     </div>
 
+    <div>
+        <p class="warning">Attention cette action est irréversible.</p>
+        <input type="submit" name="submit_button" value="Supprimer les utilisateurs sélectionnés" class="submit-button">
+    </div>
+
     <form method="post" class="table-container">
         <?php foreach ($utilisateurs as $utilisateur) : ?>
             <label class="user-checkbox">
@@ -27,7 +32,6 @@
             </label>
         <?php endforeach; ?>
 
-        <p class="warning">Attention cette action est irréversible.</p>
-        <input type="submit" name="submit_button" value="Supprimer les utilisateurs sélectionnés" class="submit-button">
+
     </form>
 </div>

@@ -26,11 +26,15 @@
             </thead>
             <tbody>
                 <?php foreach ($utilisateurs as $utilisateur) : ?>
-                    <tr>
+                    <tr onclick="window.location.href='/index.php?page=admin-modifier-utilisateur&id=<?= $utilisateur['id_utilisateur'] ?>'">
                         <td><?= htmlspecialchars($utilisateur['prenom']) ?></td>
                         <td><?= htmlspecialchars($utilisateur['nom']) ?></td>
                         <td><?= htmlspecialchars($utilisateur['email']) ?></td>
-                        <td><a href="/?page=admin-modifier-utilisateur&id=<?= $utilisateur['id_utilisateur'] ?>"><button>Modifier</button></a></td>
+                        <td>
+                            <a href="/index.php?page=admin-modifier-utilisateur&id=<?= $utilisateur['id_utilisateur'] ?>" onclick="event.stopPropagation();">
+                                <button>Modifier</button>
+                            </a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

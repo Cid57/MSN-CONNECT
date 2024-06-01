@@ -25,6 +25,7 @@ function rechercherUtilisateurs() {
   });
 }
 
+//permet de valider avec la touche entree
 document
   .getElementById("recherche-button")
   .addEventListener("click", function () {

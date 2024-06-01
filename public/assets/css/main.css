@@ -78,8 +78,7 @@ header nav {
 .menu-list h4 {
     font-family: "Indie Flower", cursive;
     letter-spacing: 2px;
-    margin-left: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 
 }
 
@@ -152,7 +151,7 @@ header nav {
 .sidebar-left {
     background-color: #171c32;
     width: 260px;
-    height: 88.7vh;
+    height: 87.6vh;
     float: left;
     display: flex;
     flex-direction: column;

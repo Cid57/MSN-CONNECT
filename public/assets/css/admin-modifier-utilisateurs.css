@@ -125,9 +125,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     max-height: 500px;
-    /* Ajout d'une hauteur maximale */
     overflow-y: auto;
-    /* Permet le défilement vertical */
+
 }
 
 table {
@@ -140,7 +139,6 @@ thead th {
     color: white;
     padding: 10px;
     position: sticky;
-
     top: 0;
     z-index: 1;
 }
@@ -148,6 +146,7 @@ thead th {
 tbody tr {
     transition: background-color 0.3s ease, transform 0.3s ease;
     text-align: center;
+    cursor: pointer;
 }
 
 tbody tr:hover {
@@ -178,7 +177,6 @@ button:hover {
 table th,
 table td {
     padding: 1rem;
-    /* text-align: left; */
     border-bottom: 1px solid #e0e0e0;
 }
 

@@ -12,13 +12,13 @@ function rechercherUtilisateurs() {
   // Parcourir chaque utilisateur pour vérifier s'il correspond à la recherche
   utilisateurs.forEach(function (utilisateur) {
     // Récupérer le prénom, le nom et l'email de l'utilisateur et les convertir en minuscules
-    var utilisateurPrenom = utilisateur
+    let utilisateurPrenom = utilisateur
       .querySelector("td:nth-child(1)")
       .textContent.toLowerCase();
-    var utilisateurNom = utilisateur
+    let utilisateurNom = utilisateur
       .querySelector("td:nth-child(2)")
       .textContent.toLowerCase();
-    var utilisateurEmail = utilisateur
+    let utilisateurEmail = utilisateur
       .querySelector("td:nth-child(3)")
       .textContent.toLowerCase();
 
@@ -37,6 +37,7 @@ function rechercherUtilisateurs() {
   });
 }
 
+// Permet de valider par la touche entrer
 document
   .getElementById("recherche-button")
   .addEventListener("click", function () {

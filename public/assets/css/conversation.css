@@ -1,10 +1,9 @@
 /* Styles de succès */
 .channel-success {
     font-size: 1.2rem;
-    /* Taille de police ajustée */
     color: violet;
     margin-left: 1rem;
-    /* Marge ajustée */
+
 }
 
 /* Section principale de la conversation */
@@ -20,19 +19,16 @@
 .content-right-section img {
     border-radius: 50%;
     margin-right: 0.5rem;
-    /* Marge ajustée */
+
 }
 
 /* Style des titres dans la section */
 .content-right-section h2 {
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
-    /* Taille de police ajustée */
     color: white;
     margin: 0 0 1rem 1.5rem;
-    /* Marge ajustée */
     padding-bottom: 0.5rem;
-    /* Padding ajusté */
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -42,7 +38,6 @@
     flex-direction: column;
     background: linear-gradient(to bottom, #4d5ea8, #9da7d2);
     padding: 1rem;
-    /* Padding ajusté */
     max-width: 100%;
     height: 100%;
 }
@@ -52,7 +47,7 @@
     overflow-y: auto;
     flex-grow: 1;
     padding: 0.5rem;
-    /* Padding ajusté */
+
 }
 
 /* Style de base pour les messages */
@@ -60,16 +55,14 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
-    /* Marge ajustée */
     color: white;
 }
 
 /* Style pour l'auteur du message */
 .message-author {
     padding-bottom: 0.5rem;
-    /* Padding ajusté */
     font-size: 1rem;
-    /* Taille de police ajustée */
+
 }
 
 /* Alignement des messages envoyés et reçus */
@@ -84,18 +77,15 @@
 /* Contenu du message avec des styles différents */
 .message-content {
     padding: 0.5rem 1rem;
-    /* Padding ajusté */
     border-radius: 1rem;
-    /* Bordure ajustée */
     background-color: #e5e5ea;
     color: white;
     max-width: 70%;
     word-wrap: break-word;
     font-size: 0.9rem;
-    /* Taille de police ajustée */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     margin-bottom: 0.5rem;
-    /* Marge ajustée */
+
 }
 
 .message.sent .message-content {
@@ -120,7 +110,6 @@
 .message-form {
     display: flex;
     padding: 0.5rem;
-    /* Padding ajusté */
     border-top: 1px solid #e0e0e0;
 }
 
@@ -131,10 +120,8 @@
     width: 100%;
     background-color: white;
     border-radius: 1.5rem;
-    /* Bordure ajustée */
     border: 1px solid #e0e0e0;
     padding: 0.3rem;
-    /* Padding ajusté */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -142,19 +129,15 @@
 textarea {
     flex: 1;
     padding: 0.5rem 1rem;
-    /* Padding ajusté */
     border: none;
     border-radius: 1.5rem;
-    /* Bordure ajustée */
     resize: none;
     outline: none;
     font-size: 1rem;
-    /* Taille de police ajustée */
     font-family: 'Arial', sans-serif;
     color: #333;
     background-color: #fff;
     margin-right: 0.5rem;
-    /* Marge ajustée */
     box-sizing: border-box;
 }
 
@@ -164,7 +147,6 @@ button {
     align-items: center;
     justify-content: center;
     padding: 0.5rem;
-    /* Padding ajusté */
     background-color: #3498db;
     color: white;
     border: none;

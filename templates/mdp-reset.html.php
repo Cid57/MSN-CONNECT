@@ -18,9 +18,6 @@
 
         <button><a href="/?page=connexion">Revenir sur le formulaire</a></button>
 
-
-
-
         <?php if (!empty($message)) : ?>
             <p class="succee_message"><?= $message; ?></p>
         <?php endif; ?>

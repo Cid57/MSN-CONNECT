@@ -60,7 +60,7 @@ body {
     }
 }
 
-.container-contact {
+/* .container-contact {
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
@@ -70,9 +70,39 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     max-width: 650px;
-    height: calc(100vh - 215px);
-
+    max-height: calc(100vh - 146px);
     overflow: hidden;
+} */
+
+.container-contact {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 20px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 650px;
+    /* Assurez-vous qu'il n'y a qu'une seule définition de max-width */
+    max-height: 80vh;
+    /* Utilisez une unité de mesure relative */
+    overflow: hidden;
+}
+
+/* Media query pour les très grands écrans */
+@media (min-width: 1200px) {
+    .container-contact {
+        max-height: 70vh;
+        /* Ajustez la hauteur pour les écrans plus grands */
+    }
+}
+
+/* Media query pour les petits écrans */
+@media (max-width: 768px) {
+    .container-contact {
+        max-height: 90vh;
+        /* Ajustez la hauteur pour les écrans plus petits */
+    }
 }
 
 .recherche-barre {
@@ -109,7 +139,6 @@ body {
     padding: 0;
     margin: 0;
     overflow-y: auto;
-    /* Enable vertical scrolling */
     flex-grow: 1;
 }
 

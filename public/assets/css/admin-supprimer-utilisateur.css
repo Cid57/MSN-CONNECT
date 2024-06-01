@@ -131,7 +131,7 @@ body {
     transform: scale(1.2);
     cursor: pointer;
     margin-right: 10px;
-    /* Pour espacer la case à cocher du texte */
+
 }
 
 .user-checkbox p {
@@ -159,7 +159,6 @@ body {
 .warning {
     text-align: center;
     color: #E74C3C;
-
     font-size: 24px;
 }
 

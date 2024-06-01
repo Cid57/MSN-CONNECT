@@ -21,7 +21,7 @@ $query = $dbh->prepare("SELECT channel.*, utilisateur.prenom AS prenom_destinata
                         INNER JOIN utilisateur ON destinataire_acces.id_utilisateur = utilisateur.id_utilisateur  
                         WHERE mon_acces.id_utilisateur = :id_utilisateur AND destinataire_acces.id_utilisateur <> :id_utilisateur AND est_groupe = 0 AND channel.est_actif = 1 
                         ORDER BY date_heure_dernier_message DESC 
-                        LIMIT 10");
+                        LIMIT 5");
 $query->execute([
     'id_utilisateur' => $idUtilisateur,
 ]);
@@ -74,13 +74,19 @@ $groupes = $query->fetchAll();
                     </a>
                 </div>
 
+
+
                 <div class="menu-list">
                     <?php if (!empty($avatarUtilisateur)) : ?>
-                        <img src="uploads/<?= htmlspecialchars($avatarUtilisateur) ?>" alt="Avatar de l'utilisateur" class="user-avatar">
+                        <a href="/?page=parametres"> <img src="uploads/<?= htmlspecialchars($avatarUtilisateur) ?>" alt="Avatar de l'utilisateur" class="user-avatar"></a>
                     <?php endif; ?>
-                    <h4><?= "$prenomUtilisateur $nomUtilisateur" ?></h4>
+
+                    <a href="/?page=parametres">
+                        <h4><?= "$prenomUtilisateur $nomUtilisateur" ?></h4>
+                    </a>
+
+
                     <a href="/?page=administrateur" class="btn"><img src="assets/img/reglages.png" alt="reglage-admin"></a>
-                    <a href="/?page=parametres"><img src="/assets/img/utilisateur.png" alt="utilisateur" /></a>
                     <a href="scripts.php?script=deconnexion"><img src="/assets/img/se-deconnecter.png" alt="logo-deconnexion"></a>
                 </div>
             </nav>
@@ -103,8 +109,8 @@ $groupes = $query->fetchAll();
                     <?php foreach ($discussions as $discussion) : ?>
                         <div class="message-prive-container">
                             <a href="/index.php?page=conversation&id_channel=<?= $discussion['id_channel'] ?>" class="message-prive-link"><?= htmlspecialchars($discussion['prenom_destinataire'] . ' ' . $discussion['nom_destinataire']) ?></a>
-                            <!-- Lien de suppression de la conversation -->
-                            <a href="/scripts.php?script=archiver-conversation&id_channel=<?= $discussion['id_channel'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette conversation ?');" class="archiver-conversation-link">X</a>
+                            <!-- Lien de suppression de la conversation retiré -->
+                            <!-- <a href="/scripts.php?script=archiver-conversation&id_channel=<?= $discussion['id_channel'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette conversation ?');" class="archiver-conversation-link">X</a> -->
                         </div>
                     <?php endforeach; ?>
 
@@ -127,7 +133,7 @@ $groupes = $query->fetchAll();
                     <?php endforeach; ?>
                 </div>
             </div>
-            <div class="couleur"></div>
+
             <div>
                 <?php require  "../templates/$page.html.php"; ?>
             </div>
