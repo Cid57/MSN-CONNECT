@@ -12,7 +12,7 @@
     flex-direction: column;
     background: linear-gradient(to bottom, #4d5ea8, #9da7d2);
     border-bottom: 1px solid #ccc;
-    height: 88.7vh;
+    height: 87.6vh;
 }
 
 /* Style des images dans la section */
@@ -217,4 +217,22 @@ button:hover {
     button {
         padding: 0.3rem;
     }
+}
+
+
+/* messages.css */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.error-message svg {
+    fill: #721c24;
+    margin-right: 10px;
 }

@@ -8,8 +8,8 @@ if (empty($_SESSION['id_utilisateur'])) {
     exit;
 }
 
-// Récupérer tous les utilisateurs sauf l'utilisateur connecté
-$stmt = $dbh->prepare("SELECT id_utilisateur, nom, prenom, email FROM utilisateur WHERE id_utilisateur <> :id_utilisateur");
+// Récupérer tous les utilisateurs actifs sauf l'utilisateur connecté
+$stmt = $dbh->prepare("SELECT id_utilisateur, nom, prenom, email FROM utilisateur WHERE id_utilisateur <> :id_utilisateur AND est_actif = 1");
 $stmt->execute([
     'id_utilisateur' => $_SESSION['id_utilisateur']
 ]);

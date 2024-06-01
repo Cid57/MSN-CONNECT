@@ -21,7 +21,6 @@
 
     <div>
         <p class="warning">Attention cette action est irréversible.</p>
-        <input type="submit" name="submit_button" value="Supprimer les utilisateurs sélectionnés" class="submit-button">
     </div>
 
     <form method="post" class="table-container">
@@ -31,7 +30,8 @@
                 <p><?= htmlspecialchars($utilisateur['prenom'] . ' ' . $utilisateur['nom']) . ' (' . htmlspecialchars($utilisateur['email']) . ')' ?></p>
             </label>
         <?php endforeach; ?>
-
-
+        <div class="sticky-button-container">
+            <input type="submit" name="submit_button" value="Supprimer les utilisateurs sélectionnés" class="submit-button">
+        </div>
     </form>
 </div>

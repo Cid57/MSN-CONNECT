@@ -16,7 +16,6 @@
     </div>
     <ul class="contact-list">
         <?php
-
         $idUtilisateur = $_SESSION['id_utilisateur'];
 
         foreach ($utilisateurs as $utilisateur) :

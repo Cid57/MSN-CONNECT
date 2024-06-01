@@ -1,8 +1,9 @@
 body {
-
-
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
-
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .gestion-administrateur {
@@ -11,9 +12,9 @@ body {
     justify-content: space-between;
     background-color: #ffffff;
     padding: 1rem 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-
+    margin-bottom: 30px;
 }
 
 .gestion-administrateur img {
@@ -63,45 +64,62 @@ body {
     }
 }
 
-
-
-
 .content {
-
     margin: 2rem auto;
     max-width: 900px;
     display: flex;
     flex-direction: column;
+    gap: 40px;
     padding: 25px;
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
 
 .administrateur {
     margin-bottom: 20px;
     margin-top: 20px;
 }
 
-.administrateur table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-.administrateur table td {
+.administrateur h2 {
+    color: #4A90E2;
     text-align: center;
-
+    margin-bottom: 20px;
+    font-family: "Sedan SC", serif;
+    font-size: 30px;
 }
 
-.administrateur table img {
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item img {
     width: 60px;
     height: 60px;
     margin-bottom: 10px;
 }
 
-.administrateur table input[type="button"] {
+.grid-item a {
+    display: block;
+    margin-top: 10px;
+}
+
+.grid-item input[type="button"] {
     background-color: #4A90E2;
     color: #ffffff;
     border: none;
@@ -112,7 +130,7 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.administrateur table input[type="button"]:hover {
+.grid-item input[type="button"]:hover {
     background-color: #357ABD;
     transform: translateY(-4px);
 }

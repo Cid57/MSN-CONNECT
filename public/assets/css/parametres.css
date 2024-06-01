@@ -1,5 +1,4 @@
 body {
-
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
 }
 
@@ -68,7 +67,6 @@ body {
     margin: 2rem auto;
     width: 60%;
     gap: 40px;
-
 }
 
 .content-block,
@@ -81,7 +79,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
 
+.content-block {
+    min-height: 400px;
+    /* Ensure both blocks have the same minimum height */
+}
+
+.form-block {
+    min-height: 400px;
+    /* Ensure both blocks have the same minimum height */
 }
 
 .content {
@@ -106,33 +113,27 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    justify-content: flex-end;
+    flex-grow: 1;
 }
 
-.content form label {
-    font-weight: bold;
-    color: #333;
-}
 
-.content form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.content form button {
+button,
+.custom-file-upload {
     background-color: #4A90E2;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: auto;
-
+    margin-top: 10px;
+    text-align: center;
 }
 
-.content form button:hover {
+button:hover,
+.custom-file-upload:hover {
     background-color: #357ABD;
     transform: translateY(-2px);
 }
@@ -142,23 +143,23 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
 .container-modifier-mdp form {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    justify-content: flex-end;
 }
 
 .container-modifier-mdp label {
     display: block;
     margin-bottom: 10px;
-
 }
 
 .container-modifier-mdp h2 {
     font-family: "Sedan SC", serif;
+    color: #4A90E2;
 }
 
 .container-modifier-mdp input {
@@ -169,25 +170,6 @@ body {
     border-radius: 4px;
 }
 
-.container-modifier-mdp button {
-    background-color: #4A90E2;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 100%;
-    margin-top: auto;
-
-}
-
-.container-modifier-mdp button:hover {
-    background-color: #357ABD;
-    transform: translateY(-2px);
-}
-
 .message {
     color: green;
     font-size: 18px;
@@ -195,18 +177,11 @@ body {
     text-align: center;
 }
 
-
-.avatar img {
-    width: 100px;
-    height: 100px;
-}
-
 @media (max-width: 768px) {
     .container-profile {
         flex-direction: column;
         width: 80%;
         gap: 20px;
-
     }
 
     .content-block,
@@ -215,31 +190,6 @@ body {
         margin-bottom: 20px;
     }
 }
-
-
-
-
-
-/* 
-.mdp-icon {
-    position: relative;
-    top: -42px;
-    right: 10px;
-    color: red;
-}
-
-.mdp-icon:hover {
-    color: rgb(221, 136, 136);
-}
-
-.eye,
-.eye-off {
-    position: absolute;
-    right: 24px;
-    top: 10px;
-    cursor: pointer;
-} */
-
 
 .group {
     position: relative;
@@ -262,4 +212,24 @@ body {
 .mdp-icon .eye-off {
     width: 20px;
     height: 20px;
+}
+
+/* Style pour l'input de l'avatar */
+.avatar-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-upload input[type="file"] {
+    display: none;
+}
+
+.avatar-upload .avatar-preview {
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
 }

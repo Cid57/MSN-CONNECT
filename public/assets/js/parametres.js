@@ -1,23 +1,27 @@
-document.addEventListener("DOMContentLoaded", () => {
-  feather.replace();
+document.getElementById("avatar").addEventListener("change", function (event) {
+  var reader = new FileReader();
+  reader.onload = function () {
+    var output = document.getElementById("avatarPreview");
+    output.src = reader.result;
+  };
+  reader.readAsDataURL(event.target.files[0]);
+});
 
-  document.querySelectorAll(".mdp-icon").forEach((icon) => {
-    const passwordInput = icon.previousElementSibling;
-    const eye = icon.querySelector(".eye");
-    const eyeOff = icon.querySelector(".eye-off");
+// Gestion des icônes d'œil pour afficher/masquer le mot de passe
+document.querySelectorAll(".mdp-icon").forEach(function (iconGroup) {
+  var input = iconGroup.previousElementSibling;
+  var eye = iconGroup.querySelector(".eye");
+  var eyeOff = iconGroup.querySelector(".eye-off");
 
-    // Révèle le mot de passe
-    eye.addEventListener("click", () => {
-      passwordInput.type = "text";
-      eye.style.display = "none";
-      eyeOff.style.display = "block";
-    });
+  eye.addEventListener("click", function () {
+    input.type = "text";
+    eye.style.display = "none";
+    eyeOff.style.display = "block";
+  });
 
-    // Masque le mot de passe
-    eyeOff.addEventListener("click", () => {
-      passwordInput.type = "password";
-      eyeOff.style.display = "none";
-      eye.style.display = "block";
-    });
+  eyeOff.addEventListener("click", function () {
+    input.type = "password";
+    eyeOff.style.display = "none";
+    eye.style.display = "block";
   });
 });

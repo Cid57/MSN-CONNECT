@@ -15,7 +15,7 @@ if ($_SESSION['est_admin'] == 0) {
 
 $message = '';
 
-if (!empty($_POST['submit_button'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['submit_button'])) {
     if (!empty($_POST['utilisateur']) && is_array($_POST['utilisateur'])) {
         $ids_placeholders = implode(',', array_fill(0, count($_POST['utilisateur']), '?'));
 
@@ -24,6 +24,8 @@ if (!empty($_POST['submit_button'])) {
 
         // Stocker le message de confirmation dans la session
         $_SESSION['message'] = "Les utilisateurs sélectionnés ont été supprimés avec succès.";
+        header('Location: /?page=admin-supprimer-utilisateur');
+        exit;
     } else {
         $message = "Veuillez sélectionner au moins un utilisateur.";
     }

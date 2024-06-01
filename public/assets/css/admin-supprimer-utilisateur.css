@@ -1,5 +1,9 @@
 body {
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .gestion-administrateur {
@@ -64,13 +68,18 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 50%;
-    width: 100%;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 90%;
     box-sizing: border-box;
-    margin: auto;
+    margin: 2rem auto;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.container-supprimer:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .recherche-barre {
@@ -103,10 +112,9 @@ body {
 }
 
 .table-container {
-    max-height: 300px;
-
+    max-height: 348px;
     overflow-y: auto;
-
+    margin-bottom: 1rem;
 }
 
 .user-checkbox {
@@ -119,7 +127,8 @@ body {
     border-radius: 4px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-
+    margin-bottom: 10px;
+    /* Ajout de marge pour espacer les éléments */
 }
 
 .user-checkbox:hover {
@@ -131,12 +140,20 @@ body {
     transform: scale(1.2);
     cursor: pointer;
     margin-right: 10px;
-
 }
 
 .user-checkbox p {
     margin: 0;
     cursor: pointer;
+}
+
+.sticky-button-container {
+    position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    border-top: 1px solid #ccc;
 }
 
 .submit-button {
@@ -148,24 +165,27 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 20px 0 20px 70px;
 }
 
 .submit-button:hover {
     background-color: #357ABD;
     transform: translateY(-2px);
+
 }
 
 .warning {
     text-align: center;
     color: #E74C3C;
     font-size: 24px;
+
+    margin-bottom: 19px;
 }
 
 .message {
     font-size: 25px;
     color: violet;
     padding-bottom: 12px;
+    text-align: center;
 }
 
 @media (max-width: 768px) {

@@ -20,6 +20,9 @@ if ($idUtilisateur) {
     $emailUtilisateur = $utilisateur['email'];
 }
 
+$messageAvatar = '';
+$messageMdp = '';
+
 if (isset($_POST['modifier_mdp'])) {
     $ancienMdp = $_POST['ancien_mdp'];
     $nouveauMdp = $_POST['nouveau_mdp'];
@@ -33,12 +36,12 @@ if (isset($_POST['modifier_mdp'])) {
                 'nouveau_mdp' => $nouveauMdpHash,
                 'id_utilisateur' => $idUtilisateur
             ]);
-            $message = "Mot de passe modifié avec succès.";
+            $messageMdp = "Mot de passe modifié avec succès.";
         } else {
-            $message = "Les nouveaux mots de passe ne correspondent pas.";
+            $messageMdp = "Les nouveaux mots de passe ne correspondent pas.";
         }
     } else {
-        $message = "L'ancien mot de passe est incorrect.";
+        $messageMdp = "L'ancien mot de passe est incorrect.";
     }
 }
 
@@ -61,11 +64,11 @@ if (isset($_POST['modifier_avatar']) && isset($_FILES['avatar']) && $_FILES['ava
                 'avatar' => $fileName,
                 'id_utilisateur' => $idUtilisateur
             ]);
-            $message = "Avatar modifié avec succès.";
+            $messageAvatar = "Avatar modifié avec succès.";
         } else {
-            $message = "Une erreur est survenue lors du téléchargement de l'avatar.";
+            $messageAvatar = "Une erreur est survenue lors du téléchargement de l'avatar.";
         }
     } else {
-        $message = "Seuls les fichiers avec les extensions suivantes sont autorisés : " . implode(', ', $allowedfileExtensions);
+        $messageAvatar = "Seuls les fichiers avec les extensions suivantes sont autorisés : " . implode(', ', $allowedfileExtensions);
     }
 }

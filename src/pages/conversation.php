@@ -10,6 +10,8 @@ if (empty($_SESSION['id_utilisateur'])) {
     exit;
 }
 
+
+
 // Récupérer l'ID de l'utilisateur connecté
 $idUtilisateur = $_SESSION['id_utilisateur'];
 
@@ -18,6 +20,18 @@ $idDestinataire = isset($_GET['id_destinataire']) ? (int)$_GET['id_destinataire'
 
 // Si un destinataire est spécifié et que ce n'est pas l'utilisateur lui-même
 if ($idDestinataire && $idDestinataire != $idUtilisateur) {
+    // Vérifier si le destinataire est actif
+    $query = $dbh->prepare("SELECT est_actif FROM utilisateur WHERE id_utilisateur = :id_destinataire");
+    $query->execute(['id_destinataire' => $idDestinataire]);
+    $destinataire = $query->fetch();
+
+    if (!$destinataire || !$destinataire['est_actif']) {
+        // Si le destinataire n'existe pas ou est inactif, rediriger avec un message d'erreur
+        $_SESSION['error_message'] = "Impossible de démarrer une conversation avec un utilisateur désactivé.";
+        header('Location: /?page=liste-de-contact');
+        exit;
+    }
+
     // Vérifier si une conversation existe déjà entre l'utilisateur et le destinataire
     $query = $dbh->prepare(
         "SELECT channel.id_channel FROM channel
@@ -91,7 +105,7 @@ if ($channelExistant['est_groupe']) {
 } else {
     // Sinon, récupérer les informations de l'autre utilisateur dans la conversation
     $query = $dbh->prepare(
-        "SELECT utilisateur.prenom AS prenom_destinataire, utilisateur.nom AS nom_destinataire 
+        "SELECT utilisateur.prenom AS prenom_destinataire, utilisateur.nom AS nom_destinataire, utilisateur.est_actif AS est_actif_destinataire
         FROM acces
         INNER JOIN utilisateur ON acces.id_utilisateur = utilisateur.id_utilisateur
         WHERE acces.id_channel = :id_channel AND utilisateur.id_utilisateur != :id_utilisateur"
@@ -130,6 +144,13 @@ if (!$messages) {
 
 // Gérer l'envoi d'un nouveau message
 if (isset($_POST['message_submit']) && !empty($_POST['contenu'])) {
+    // Vérifier si le destinataire est actif avant d'envoyer le message
+    if (!$destinataire['est_actif_destinataire']) {
+        $_SESSION['error_message'] = "Impossible d'envoyer des messages à un utilisateur désactivé.";
+        header("Location: /?page=conversation&id_channel=$idChannel");
+        exit;
+    }
+
     // Insérer le nouveau message dans la base de données
     $query = $dbh->prepare(
         "INSERT INTO message (date_heure_envoi, contenu, id_channel, id_utilisateur)

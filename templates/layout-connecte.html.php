@@ -1,40 +1,54 @@
 <?php
-// Récupérer les informations de l'utilisateur
+// Démarrer la session si nécessaire
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+
+
+// Récupérer les informations de l'utilisateur connecté
 $idUtilisateur = $_SESSION['id_utilisateur'];
 
-$query = $dbh->query("SELECT * FROM utilisateur 
+$query = $dbh->prepare("SELECT * FROM utilisateur 
                         INNER JOIN statut_utilisateur ON utilisateur.id_statut_utilisateur = statut_utilisateur.id_statut_utilisateur 
-                        WHERE id_utilisateur = $idUtilisateur");
+                        WHERE id_utilisateur = :id_utilisateur");
+$query->execute(['id_utilisateur' => $idUtilisateur]);
 $utilisateur = $query->fetch();
 
 $prenomUtilisateur = $utilisateur['prenom'];
 $nomUtilisateur = $utilisateur['nom'];
 $avatarUtilisateur = $utilisateur['avatar'];
-
 $dateCreationUtilisateur = $utilisateur['date_de_creation'];
 $statutUtilisateur = ['nom' => $utilisateur['nom_statut'], 'disponible' => $utilisateur['est_disponible']];
 
 // Récupérer les discussions
-$query = $dbh->prepare("SELECT channel.*, utilisateur.prenom AS prenom_destinataire, utilisateur.nom AS nom_destinataire FROM channel 
+$query = $dbh->prepare("SELECT channel.*, utilisateur.prenom AS prenom_destinataire, utilisateur.nom AS nom_destinataire, utilisateur.est_actif 
+                        FROM channel 
                         INNER JOIN acces AS mon_acces ON channel.id_channel = mon_acces.id_channel 
                         INNER JOIN acces AS destinataire_acces ON mon_acces.id_channel = destinataire_acces.id_channel
                         INNER JOIN utilisateur ON destinataire_acces.id_utilisateur = utilisateur.id_utilisateur  
-                        WHERE mon_acces.id_utilisateur = :id_utilisateur AND destinataire_acces.id_utilisateur <> :id_utilisateur AND est_groupe = 0 AND channel.est_actif = 1 
+                        WHERE mon_acces.id_utilisateur = :id_utilisateur 
+                        AND destinataire_acces.id_utilisateur <> :id_utilisateur 
+                        AND est_groupe = 0 
+                        AND channel.est_actif = 1 
                         ORDER BY date_heure_dernier_message DESC 
                         LIMIT 5");
-$query->execute([
-    'id_utilisateur' => $idUtilisateur,
-]);
+$query->execute(['id_utilisateur' => $idUtilisateur]);
 $discussions = $query->fetchAll();
 
 // Récupérer les groupes
-$query = $dbh->query("SELECT * FROM channel 
+$query = $dbh->prepare("SELECT * FROM channel 
                         INNER JOIN acces ON channel.id_channel = acces.id_channel 
-                        WHERE acces.id_utilisateur = $idUtilisateur AND est_groupe = 1 AND est_actif = 1 
+                        WHERE acces.id_utilisateur = :id_utilisateur 
+                        AND est_groupe = 1 
+                        AND est_actif = 1 
                         ORDER BY date_heure_dernier_message DESC 
                         LIMIT 10");
+$query->execute(['id_utilisateur' => $idUtilisateur]);
 $groupes = $query->fetchAll();
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -45,6 +59,7 @@ $groupes = $query->fetchAll();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Sedan+SC&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/mobile.css">
