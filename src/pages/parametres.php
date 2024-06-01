@@ -15,9 +15,10 @@ if ($idUtilisateur) {
     $query->execute(['id_utilisateur' => $idUtilisateur]);
     $utilisateur = $query->fetch();
 
-    $nomUtilisateur = $utilisateur['nom'];
-    $prenomUtilisateur = $utilisateur['prenom'];
-    $emailUtilisateur = $utilisateur['email'];
+    $nomUtilisateur = $utilisateur['nom'] ?? '';
+    $prenomUtilisateur = $utilisateur['prenom'] ?? '';
+    $emailUtilisateur = $utilisateur['email'] ?? '';
+    $avatar = $utilisateur['avatar'] ?? 'default-avatar.png'; // Utiliser l'avatar par défaut si non défini
 }
 
 $messageAvatar = '';
@@ -65,10 +66,18 @@ if (isset($_POST['modifier_avatar']) && isset($_FILES['avatar']) && $_FILES['ava
                 'id_utilisateur' => $idUtilisateur
             ]);
             $messageAvatar = "Avatar modifié avec succès.";
+            $avatar = $fileName; // Mettre à jour la variable $avatar avec le nouveau nom de fichier
         } else {
             $messageAvatar = "Une erreur est survenue lors du téléchargement de l'avatar.";
         }
     } else {
         $messageAvatar = "Seuls les fichiers avec les extensions suivantes sont autorisés : " . implode(', ', $allowedfileExtensions);
     }
+}
+
+if (isset($_POST['supprimer_avatar'])) {
+    $updateQuery = $dbh->prepare("UPDATE utilisateur SET avatar = NULL WHERE id_utilisateur = :id_utilisateur");
+    $updateQuery->execute(['id_utilisateur' => $idUtilisateur]);
+    $avatar = 'default-avatar.png'; // Utiliser l'avatar par défaut
+    $messageAvatar = "Avatar supprimé avec succès.";
 }

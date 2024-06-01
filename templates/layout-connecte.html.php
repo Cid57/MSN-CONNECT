@@ -4,8 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-
-
 // Récupérer les informations de l'utilisateur connecté
 $idUtilisateur = $_SESSION['id_utilisateur'];
 
@@ -17,7 +15,7 @@ $utilisateur = $query->fetch();
 
 $prenomUtilisateur = $utilisateur['prenom'];
 $nomUtilisateur = $utilisateur['nom'];
-$avatarUtilisateur = $utilisateur['avatar'];
+$avatarUtilisateur = $utilisateur['avatar'] ?? 'default-avatar.png'; // Utiliser l'avatar par défaut si non défini
 $dateCreationUtilisateur = $utilisateur['date_de_creation'];
 $statutUtilisateur = ['nom' => $utilisateur['nom_statut'], 'disponible' => $utilisateur['est_disponible']];
 
@@ -46,8 +44,8 @@ $query = $dbh->prepare("SELECT * FROM channel
                         LIMIT 10");
 $query->execute(['id_utilisateur' => $idUtilisateur]);
 $groupes = $query->fetchAll();
-
 ?>
+
 
 
 <!DOCTYPE html>
@@ -89,17 +87,14 @@ $groupes = $query->fetchAll();
                     </a>
                 </div>
 
-
-
                 <div class="menu-list">
-                    <?php if (!empty($avatarUtilisateur)) : ?>
-                        <a href="/?page=parametres"> <img src="uploads/<?= htmlspecialchars($avatarUtilisateur) ?>" alt="Avatar de l'utilisateur" class="user-avatar"></a>
-                    <?php endif; ?>
-
                     <a href="/?page=parametres">
-                        <h4><?= "$prenomUtilisateur $nomUtilisateur" ?></h4>
+                        <img src="uploads/<?= htmlspecialchars($avatarUtilisateur) ?>" alt="Avatar de l'utilisateur" class="user-avatar">
                     </a>
 
+                    <a href="/?page=parametres">
+                        <h4><?= htmlspecialchars("$prenomUtilisateur $nomUtilisateur") ?></h4>
+                    </a>
 
                     <a href="/?page=administrateur" class="btn"><img src="assets/img/reglages.png" alt="reglage-admin"></a>
                     <a href="scripts.php?script=deconnexion"><img src="/assets/img/se-deconnecter.png" alt="logo-deconnexion"></a>
@@ -120,12 +115,9 @@ $groupes = $query->fetchAll();
                         </button>
                     </div>
 
-
                     <?php foreach ($discussions as $discussion) : ?>
                         <div class="message-prive-container">
                             <a href="/index.php?page=conversation&id_channel=<?= $discussion['id_channel'] ?>" class="message-prive-link"><?= htmlspecialchars($discussion['prenom_destinataire'] . ' ' . $discussion['nom_destinataire']) ?></a>
-                            <!-- Lien de suppression de la conversation retiré -->
-                            <!-- <a href="/scripts.php?script=archiver-conversation&id_channel=<?= $discussion['id_channel'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette conversation ?');" class="archiver-conversation-link">X</a> -->
                         </div>
                     <?php endforeach; ?>
 
