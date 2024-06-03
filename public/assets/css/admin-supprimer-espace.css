@@ -1,6 +1,5 @@
 body {
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
-
 }
 
 .gestion-administrateur {
@@ -11,7 +10,6 @@ body {
     padding: 1rem 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-
 }
 
 .gestion-administrateur img {
@@ -35,7 +33,9 @@ body {
 
 .gestion-administrateur .actions a img {
     height: 46px;
+    /* Transféré du HTML */
     width: 44px;
+    /* Transféré du HTML */
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -61,13 +61,6 @@ body {
     }
 }
 
-
-
-
-
-
-
-
 /* Style global pour le conteneur de suppression */
 .container-supprimer {
     display: flex;
@@ -79,7 +72,6 @@ body {
     width: 100%;
     margin: 30px auto;
 }
-
 
 form {
     display: flex;
@@ -95,7 +87,10 @@ form {
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 4px;
-
+    cursor: pointer;
+    /* Change le curseur pour indiquer que l'élément est cliquable */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Ajoute une transition douce */
 }
 
 .checkbox:hover {
@@ -108,8 +103,10 @@ form {
     cursor: pointer;
 }
 
-
-
+.checkbox p {
+    margin: 0;
+    /* Supprime la marge des paragraphes */
+}
 
 .submit-button {
     background-color: #4A90E2;

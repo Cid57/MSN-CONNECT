@@ -1,18 +1,18 @@
 <!-- Banniere Gestion administrateur -->
-<div class="gestion-administrateur">
+<div class="banniere-gestion-administrateur">
     <img src="assets/img/logo-admin.png" alt="icone logo admin">
     <h1> Gestion administrateur </h1>
     <div>
-        <a href="/?page=administrateur"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/left.png" alt="left" /></a>
-        <a href="/"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign" /></a>
+        <a href="/?page=administrateur"><img src="https://img.icons8.com/3d-fluency/94/left.png" alt="left" /></a>
+        <a href="/"><img src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign" /></a>
     </div>
 </div>
 <!-- --------------------------------------- -->
 
-<div class="container-ajout-groupe">
-    <div class="header">
+<div class="conteneur-ajout-groupe">
+    <div class="en-tete">
         <img src="assets/img/bulle-bleu.png" alt="Icone ajouter espace">
-        <h1>Ajouter un groupe</h1>
+        <h2>Ajouter un groupe</h2>
     </div>
 
     <!-- Formulaire -->

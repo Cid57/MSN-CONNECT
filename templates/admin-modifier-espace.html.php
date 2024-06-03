@@ -1,18 +1,17 @@
 <!-- Banderole "gestion administrateur" -->
 <div class="gestion-administrateur">
     <img src="assets/img/logo-admin.png" alt="icone logo admin">
-    <h1>Modifier l'espace</h1>
-    <div>
-        <a href="/?page=administrateur"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/left.png" alt="left" /></a>
-        <a href="/"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign" /></a>
+    <h1>Modifier les groupes</h1>
+    <div class="actions">
+        <a href="/?page=administrateur"><img src="https://img.icons8.com/3d-fluency/94/left.png" alt="fleche-retour"></a>
+        <a href="/"><img src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="croix"></a>
     </div>
 </div>
-
 <!-- Fin de banderole -->
 
 <div class="modifier-channel">
     <div class="modifier-section">
-        <h2>Canaux</h2>
+        <h2>Groupes</h2>
         <ul class="modifier-list">
             <?php foreach ($channels as $channel) : ?>
                 <li>

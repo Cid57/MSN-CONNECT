@@ -1,13 +1,11 @@
-.image-accueil {
+.image-de-bienvenue {
     background-image: url(../img/accueil\ \(2\).jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
-
 }
 
-.welcome-container {
+.conteneur-bienvenue {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -21,7 +19,7 @@
     animation: fadeIn 1s ease-in-out;
 }
 
-.welcome-container h1 {
+.conteneur-bienvenue h1 {
     font-size: 3.5em;
     color: #ffffff;
     margin-bottom: 20px;
@@ -29,7 +27,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.welcome-container p {
+.conteneur-bienvenue p {
     font-size: 2em;
     color: #ffffff;
     margin-bottom: 20px;
@@ -37,7 +35,7 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.welcome-container .welcome-icon {
+.conteneur-bienvenue .icone-bienvenue {
     font-size: 3em;
     color: #3498db;
     margin-bottom: 20px;
@@ -45,15 +43,15 @@
 }
 
 @media (max-width: 600px) {
-    .welcome-container {
+    .conteneur-bienvenue {
         padding: 20px;
     }
 
-    .welcome-container h1 {
+    .conteneur-bienvenue h1 {
         font-size: 2em;
     }
 
-    .welcome-container p {
+    .conteneur-bienvenue p {
         font-size: 1em;
     }
 }

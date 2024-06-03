@@ -1,12 +1,10 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
+
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
-    color: #333;
+
 }
 
-.gestion-administrateur {
+.banniere-gestion-administrateur {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,15 +12,14 @@ body {
     padding: 1rem 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-
 }
 
-.gestion-administrateur img {
+.banniere-gestion-administrateur img {
     height: 50px;
     margin-right: 15px;
 }
 
-.gestion-administrateur h1 {
+.banniere-gestion-administrateur h1 {
     flex-grow: 1;
     margin: 0;
     color: #4A90E2;
@@ -31,41 +28,41 @@ body {
     text-align: center;
 }
 
-.gestion-administrateur .actions {
+.banniere-gestion-administrateur .actions {
     display: flex;
     gap: 10px;
 }
 
-.gestion-administrateur .actions a img {
+.banniere-gestion-administrateur .actions a img {
     height: 46px;
     width: 44px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.gestion-administrateur .actions a img:hover {
+.banniere-gestion-administrateur .actions a img:hover {
     transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
-    .gestion-administrateur {
+    .banniere-gestion-administrateur {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    .gestion-administrateur img,
-    .gestion-administrateur h1 {
+    .banniere-gestion-administrateur img,
+    .banniere-gestion-administrateur h1 {
         margin: 10px 0;
     }
 
-    .gestion-administrateur .actions {
+    .banniere-gestion-administrateur .actions {
         margin-top: 10px;
     }
 }
 
 /* Style pour le conteneur du formulaire d'ajout de groupe */
-.container-ajout-groupe {
+.conteneur-ajout-groupe {
     background-color: #f9f9f9;
     padding: 40px;
     border-radius: 8px;
@@ -76,44 +73,39 @@ body {
     align-items: center;
 }
 
-
-.container-ajout-groupe .header {
+.conteneur-ajout-groupe .en-tete {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-.container-ajout-groupe .header img {
+.conteneur-ajout-groupe .en-tete img {
     width: 40px;
     height: 40px;
 }
 
-.container-ajout-groupe .header h1 {
+.conteneur-ajout-groupe .en-tete h2 {
     font-size: 24px;
     color: #333;
     margin: 0;
 }
 
-.container-ajout-groupe form {
+.conteneur-ajout-groupe form {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.container-ajout-groupe form div {
-    margin-bottom: 15px;
-    width: 100%;
-}
 
-.container-ajout-groupe label {
+.conteneur-ajout-groupe label {
     font-weight: bold;
     color: #333;
     margin-bottom: 5px;
     display: block;
 }
 
-.container-ajout-groupe input[type="text"] {
+.conteneur-ajout-groupe input[type="text"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -122,7 +114,7 @@ body {
     font-size: 16px;
 }
 
-.container-ajout-groupe input[type="submit"] {
+.conteneur-ajout-groupe input[type="submit"] {
     background-color: #4A90E2;
     color: white;
     border: none;
@@ -132,14 +124,13 @@ body {
     font-size: 16px;
     transition: background-color 0.3s ease;
     align-self: center;
-
 }
 
-.container-ajout-groupe input[type="submit"]:hover {
+.conteneur-ajout-groupe input[type="submit"]:hover {
     background-color: #357ABD;
 }
 
-.container-ajout-groupe p {
+.conteneur-ajout-groupe p {
     color: red;
     font-size: 14px;
     margin: 0;
