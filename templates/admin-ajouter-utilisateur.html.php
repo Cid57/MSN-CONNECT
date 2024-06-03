@@ -11,9 +11,7 @@
 <body>
     <div class="container">
         <!-- Votre barre latérale -->
-        <div class="sidebar">
-            <!-- Contenu de la barre latérale -->
-        </div>
+
 
         <div class="main-content">
             <!-- Banderole "gestion administrateur" -->

@@ -16,6 +16,7 @@ $utilisateur = $query->fetch();
 $prenomUtilisateur = $utilisateur['prenom'];
 $nomUtilisateur = $utilisateur['nom'];
 $avatarUtilisateur = $utilisateur['avatar'] ?? 'default-avatar.png'; // Utiliser l'avatar par défaut si non défini
+$estAdmin = $utilisateur['est_admin'];                               // Ajouter cette ligne pour récupérer le statut d'admin
 $dateCreationUtilisateur = $utilisateur['date_de_creation'];
 $statutUtilisateur = ['nom' => $utilisateur['nom_statut'], 'disponible' => $utilisateur['est_disponible']];
 
@@ -95,8 +96,11 @@ $groupes = $query->fetchAll();
                     <a href="/?page=parametres">
                         <h4><?= htmlspecialchars("$prenomUtilisateur $nomUtilisateur") ?></h4>
                     </a>
-
+                    <!-- Affiche le bouton admin seulement si l'utilisateur est admin -->
+                    <?php if ($estAdmin): ?>
                     <a href="/?page=administrateur" class="btn"><img src="assets/img/reglages.png" alt="reglage-admin"></a>
+                    <?php endif; ?>
+
                     <a href="scripts.php?script=deconnexion"><img src="/assets/img/se-deconnecter.png" alt="logo-deconnexion"></a>
                 </div>
             </nav>
