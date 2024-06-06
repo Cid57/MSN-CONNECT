@@ -1,4 +1,4 @@
-<!-- Banderole "liste de contact" -->
+<!-- Banderole "liste des groupes" -->
 <div class="gestion-administrateur">
     <img src="assets/img/logo-admin.png" alt="icone logo admin">
     <h1>Liste des groupes</h1>
@@ -22,8 +22,7 @@
                         <strong><?= htmlspecialchars($channel['nom_du_channel'], ENT_QUOTES, 'UTF-8') ?></strong>
                     </div>
                     <div class="contact-actions">
-                        <!-- Doit rediriger vers un script php (dans le dossier script) qui vérifie si la conversation existe déjà et si ce n'est pas le cas la créer et donner les droits, puis rediriger vers la discussion en question -->
-                        <a href="/script.php?script=creation-channel&utilisateur=<?= htmlspecialchars($channel['id_channel'], ENT_QUOTES, 'UTF-8') ?>">Ouvrir le groupe</a>
+                        <a href="/index.php?page=conversation&id_channel=<?= htmlspecialchars($channel['id_channel'], ENT_QUOTES, 'UTF-8') ?>&is_groupe=1">Ouvrir le groupe</a>
                     </div>
                 </li>
             <?php endforeach; ?>

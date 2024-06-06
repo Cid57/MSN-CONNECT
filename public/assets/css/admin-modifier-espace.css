@@ -1,9 +1,7 @@
 body {
-    font-family: 'Roboto', sans-serif;
+
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
 }
 
 .gestion-administrateur {
@@ -14,8 +12,7 @@ body {
     padding: 1rem 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    margin-bottom: 1rem;
-    flex-shrink: 0;
+
 }
 
 .gestion-administrateur img {
@@ -65,117 +62,62 @@ body {
     }
 }
 
+
+
+/* Style pour la section globale des canaux */
 .modifier-channel {
     background-color: #f9f9f9;
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 20px;
     max-width: 600px;
     margin: 2rem auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    height: calc(100vh - 130px);
-    /* Ajuste la hauteur selon la hauteur de la fenêtre et la taille de la bannière */
-    display: flex;
-    flex-direction: column;
+
 }
 
-.modifier-section {
-    overflow-y: auto;
-    /* Permet le défilement si le contenu dépasse la hauteur */
-    flex-grow: 1;
-    /* Permet à la section de remplir l'espace disponible */
-}
-
-.modifier-section h2 {
+/* Style pour le titre de la section */
+.modifier-channel .modifier-section h2 {
     color: #333;
     font-size: 24px;
     margin-bottom: 15px;
     text-align: center;
-    font-weight: 600;
 }
 
-.modifier-list {
+/* Style pour la liste des canaux */
+.modifier-channel .modifier-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.modifier-list li {
-    padding: 15px;
-    margin-bottom: 10px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    gap: 10px;
-}
-
-.modifier-list li:hover {
-    background-color: #f0f0f0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.modifier-list li form {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 10px;
-}
-
-.modifier-list li input[type="text"] {
-    flex-grow: 1;
+/* Style pour chaque élément de la liste */
+.modifier-channel .modifier-list li {
     padding: 10px;
-    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
     border: 1px solid #ddd;
-    max-width: 70%;
-    /* Limite la largeur maximale */
-    font-size: 16px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.modifier-list li input[type="submit"] {
-    padding: 10px 20px;
-    border-radius: 5px;
+/* Style pour les boutons de modification */
+.modifier-channel .btn-modifier {
     background-color: #007bff;
     color: #fff;
     border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    font-size: 16px;
 }
 
-.modifier-list li input[type="submit"]:hover {
+.modifier-channel .btn-modifier:hover {
     background-color: #0056b3;
 }
 
-.modifier-channel input[type="text"]:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-@media (max-width: 600px) {
-    .modifier-channel {
-        padding: 1.5rem;
-        margin: 1.5rem auto;
-    }
-
-    .modifier-section h2 {
-        font-size: 1.5rem;
-    }
-
-    .modifier-list li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .modifier-list li input[type="text"] {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .modifier-list li input[type="submit"] {
-        width: 100%;
-        text-align: center;
-    }
+/* Style pour le formulaire */
+.modifier-channel form {
+    display: inline;
 }

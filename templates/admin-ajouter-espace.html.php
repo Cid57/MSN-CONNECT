@@ -1,18 +1,18 @@
 <!-- Banniere Gestion administrateur -->
-<div class="banniere-gestion-administrateur">
+<div class="gestion-administrateur">
     <img src="assets/img/logo-admin.png" alt="icone logo admin">
     <h1> Gestion administrateur </h1>
     <div>
-        <a href="/?page=administrateur"><img src="https://img.icons8.com/3d-fluency/94/left.png" alt="left" /></a>
-        <a href="/"><img src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign" /></a>
+        <a href="/?page=administrateur"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/left.png" alt="left" /></a>
+        <a href="/"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign" /></a>
     </div>
 </div>
 <!-- --------------------------------------- -->
 
-<div class="conteneur-ajout-groupe">
-    <div class="en-tete">
+<div class="container-ajout-groupe">
+    <div class="header">
         <img src="assets/img/bulle-bleu.png" alt="Icone ajouter espace">
-        <h2>Ajouter un groupe</h2>
+        <h1>Ajouter un groupe</h1>
     </div>
 
     <!-- Formulaire -->
@@ -27,6 +27,10 @@
         </div>
         <br>
         <input type="submit" id="espaceBouton" name="groupe_bouton" value="Ajouter le groupe">
+        <!-- Bouton réactiver un groupe -->
+<div class="reactiver-groupe">
+    <a href="/?page=reactiver-espace" class="btn-reactiver">Réactiver un groupe</a>
+</div>
     </form>
     <!-- Fin du formulaire -->
 </div>

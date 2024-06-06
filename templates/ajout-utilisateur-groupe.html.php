@@ -1,15 +1,15 @@
-<!-- Banderole "gestion administrateur" -->
-<div class="gestion-administrateur">
-    <img src="assets/img/supprimer-user.png" alt="Icone supprimer un utilisateur" class="user-icon">
-    <h1>Supprimer un utilisateur</h1>
+<!-- Banderole "ajout utilisateur groupe" -->
+<div class="ajout-utilisateur-groupe">
+    <img src="assets\img\ajout-user-groupe.webp" alt="Icone ajouter un utilisateur" class="user-icon">
+    <h1>Ajouter un utilisateur au groupe</h1>
     <div class="actions">
-        <a href="/?page=administrateur"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/left.png" alt="left"></a>
+        <a href="/?page=admin-modifier-espace"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/left.png" alt="left"></a>
         <a href="/"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign"></a>
     </div>
 </div>
 <!-- Fin banderole -->
 
-<div class="container-supprimer">
+<div class="form-container">
     <?php if ($message) : ?>
         <div class="message"><?= htmlspecialchars($message) ?></div>
     <?php endif; ?>
@@ -19,19 +19,16 @@
         <button type="button" id="recherche-button">Rechercher</button>
     </div>
 
-    <div>
-        <p class="warning">Attention cette action est irréversible.</p>
-    </div>
-
-    <form method="post" class="table-container">
+    <form method="post" class="form-group">
         <?php foreach ($utilisateurs as $utilisateur) : ?>
             <label class="user-checkbox">
                 <input type="checkbox" name="utilisateur[]" value="<?= $utilisateur['id_utilisateur'] ?>">
                 <p><?= htmlspecialchars($utilisateur['prenom'] . ' ' . $utilisateur['nom']) . ' (' . htmlspecialchars($utilisateur['email']) . ')' ?></p>
             </label>
         <?php endforeach; ?>
+        <input type="hidden" name="id_channel" value="<?= htmlspecialchars($id_channel) ?>">
         <div class="sticky-button-container">
-            <input type="submit" name="submit_button" value="Supprimer les utilisateurs sélectionnés" class="submit-button">
+            <input type="submit" name="submit_button" value="Ajouter les utilisateurs sélectionnés" class="submit-button">
         </div>
     </form>
 </div>

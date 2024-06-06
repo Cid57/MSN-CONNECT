@@ -1,10 +1,12 @@
 body {
-
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
-
+    color: #333;
 }
 
-.banniere-gestion-administrateur {
+.gestion-administrateur {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12,14 +14,15 @@ body {
     padding: 1rem 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+
 }
 
-.banniere-gestion-administrateur img {
+.gestion-administrateur img {
     height: 50px;
     margin-right: 15px;
 }
 
-.banniere-gestion-administrateur h1 {
+.gestion-administrateur h1 {
     flex-grow: 1;
     margin: 0;
     color: #4A90E2;
@@ -28,41 +31,41 @@ body {
     text-align: center;
 }
 
-.banniere-gestion-administrateur .actions {
+.gestion-administrateur .actions {
     display: flex;
     gap: 10px;
 }
 
-.banniere-gestion-administrateur .actions a img {
+.gestion-administrateur .actions a img {
     height: 46px;
     width: 44px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.banniere-gestion-administrateur .actions a img:hover {
+.gestion-administrateur .actions a img:hover {
     transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
-    .banniere-gestion-administrateur {
+    .gestion-administrateur {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    .banniere-gestion-administrateur img,
-    .banniere-gestion-administrateur h1 {
+    .gestion-administrateur img,
+    .gestion-administrateur h1 {
         margin: 10px 0;
     }
 
-    .banniere-gestion-administrateur .actions {
+    .gestion-administrateur .actions {
         margin-top: 10px;
     }
 }
 
 /* Style pour le conteneur du formulaire d'ajout de groupe */
-.conteneur-ajout-groupe {
+.container-ajout-groupe {
     background-color: #f9f9f9;
     padding: 40px;
     border-radius: 8px;
@@ -73,39 +76,44 @@ body {
     align-items: center;
 }
 
-.conteneur-ajout-groupe .en-tete {
+
+.container-ajout-groupe .header {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-.conteneur-ajout-groupe .en-tete img {
+.container-ajout-groupe .header img {
     width: 40px;
     height: 40px;
 }
 
-.conteneur-ajout-groupe .en-tete h2 {
+.container-ajout-groupe .header h1 {
     font-size: 24px;
     color: #333;
     margin: 0;
 }
 
-.conteneur-ajout-groupe form {
+.container-ajout-groupe form {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
+.container-ajout-groupe form div {
+    margin-bottom: 15px;
+    width: 100%;
+}
 
-.conteneur-ajout-groupe label {
+.container-ajout-groupe label {
     font-weight: bold;
     color: #333;
     margin-bottom: 5px;
     display: block;
 }
 
-.conteneur-ajout-groupe input[type="text"] {
+.container-ajout-groupe input[type="text"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -114,7 +122,7 @@ body {
     font-size: 16px;
 }
 
-.conteneur-ajout-groupe input[type="submit"] {
+.container-ajout-groupe input[type="submit"] {
     background-color: #4A90E2;
     color: white;
     border: none;
@@ -124,13 +132,14 @@ body {
     font-size: 16px;
     transition: background-color 0.3s ease;
     align-self: center;
+
 }
 
-.conteneur-ajout-groupe input[type="submit"]:hover {
+.container-ajout-groupe input[type="submit"]:hover {
     background-color: #357ABD;
 }
 
-.conteneur-ajout-groupe p {
+.container-ajout-groupe p {
     color: red;
     font-size: 14px;
     margin: 0;

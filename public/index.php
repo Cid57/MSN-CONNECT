@@ -5,7 +5,6 @@ session_start();
 // Nettoie et récupère la variable 'page' des paramètres GET
 $page = filter_var($_GET['page'] ?? 'accueil', FILTER_SANITIZE_SPECIAL_CHARS);
 
-// Construit le chemin vers le fichier de la page à afficher
 $chemin = "../src/pages/$page.php";
 
 $pagesDeConnexion = ['connexion', 'mdp-reset'];
@@ -22,4 +21,3 @@ if(file_exists($chemin)){
     require '../templates/404.html.php';  // Affiche la page d'erreur 404
     exit;
 }
-

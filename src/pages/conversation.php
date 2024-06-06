@@ -10,16 +10,16 @@ if (empty($_SESSION['id_utilisateur'])) {
     exit;
 }
 
-
-
 // Récupérer l'ID de l'utilisateur connecté
 $idUtilisateur = $_SESSION['id_utilisateur'];
 
-// Vérifier si un destinataire est spécifié dans les paramètres de la requête
+// Vérifier si un destinataire ou un canal est spécifié dans les paramètres de la requête
 $idDestinataire = isset($_GET['id_destinataire']) ? (int)$_GET['id_destinataire'] : null;
+$idChannel = isset($_GET['id_channel']) ? (int)$_GET['id_channel'] : null;
 
-// Si un destinataire est spécifié et que ce n'est pas l'utilisateur lui-même
-if ($idDestinataire && $idDestinataire != $idUtilisateur) {
+if ($idDestinataire && !$idChannel && $idDestinataire != $idUtilisateur) {
+    // Gestion de la conversation individuelle
+
     // Vérifier si le destinataire est actif
     $query = $dbh->prepare("SELECT est_actif FROM utilisateur WHERE id_utilisateur = :id_destinataire");
     $query->execute(['id_destinataire' => $idDestinataire]);
@@ -79,94 +79,103 @@ if ($idDestinataire && $idDestinataire != $idUtilisateur) {
     exit;
 }
 
-// Vérifier si l'ID du canal est spécifié dans les paramètres de la requête
-$idChannel = isset($_GET['id_channel']) ? (int)$_GET['id_channel'] : null;
+if ($idChannel) {
+    // Vérifier si l'utilisateur a accès au groupe ou à la conversation
+    $query = $dbh->prepare("SELECT * FROM acces WHERE id_channel = :id_channel AND id_utilisateur = :id_utilisateur");
+    $query->execute(['id_channel' => $idChannel, 'id_utilisateur' => $idUtilisateur]);
+    $acces = $query->fetch();
 
-if (!$idChannel) {
-    // Si aucun canal n'est spécifié, rediriger vers la page d'accueil
-    header('Location: /');
-    exit;
-}
-
-// Récupérer les informations du canal
-$query = $dbh->prepare("SELECT * FROM channel WHERE id_channel = :id_channel AND est_actif = 1");
-$query->execute(['id_channel' => $idChannel]);
-$channelExistant = $query->fetch();
-
-if (!$channelExistant) {
-    // Si le canal n'existe pas ou n'est pas actif, rediriger vers la page d'accueil
-    header('Location: /');
-    exit;
-}
-
-if ($channelExistant['est_groupe']) {
-    // Si le canal est un groupe, utiliser le nom du canal comme titre
-    $title = htmlspecialchars($channelExistant['nom_du_channel']);
-} else {
-    // Sinon, récupérer les informations de l'autre utilisateur dans la conversation
-    $query = $dbh->prepare(
-        "SELECT utilisateur.prenom AS prenom_destinataire, utilisateur.nom AS nom_destinataire, utilisateur.est_actif AS est_actif_destinataire
-        FROM acces
-        INNER JOIN utilisateur ON acces.id_utilisateur = utilisateur.id_utilisateur
-        WHERE acces.id_channel = :id_channel AND utilisateur.id_utilisateur != :id_utilisateur"
-    );
-    $query->execute([
-        'id_channel' => $idChannel,
-        'id_utilisateur' => $idUtilisateur
-    ]);
-    $destinataire = $query->fetch();
-
-    if (!$destinataire) {
-        // Si l'autre utilisateur n'est pas trouvé, rediriger vers la page d'accueil
+    if (!$acces) {
+        // Si l'utilisateur n'a pas accès au groupe ou à la conversation, rediriger vers la page d'accueil
         header('Location: /');
         exit;
     }
 
-    // Utiliser le nom et le prénom de l'autre utilisateur comme titre
-    $title = htmlspecialchars($destinataire['prenom_destinataire'] . ' ' . $destinataire['nom_destinataire']);
-}
+    // Récupérer les informations du canal
+    $query = $dbh->prepare("SELECT * FROM channel WHERE id_channel = :id_channel AND est_actif = 1");
+    $query->execute(['id_channel' => $idChannel]);
+    $channelExistant = $query->fetch();
 
-// Récupérer les messages de la conversation
-$query = $dbh->prepare(
-    "SELECT message.*, utilisateur.prenom, utilisateur.nom 
-    FROM message
-    INNER JOIN utilisateur ON message.id_utilisateur = utilisateur.id_utilisateur
-    WHERE message.id_channel = :id_channel
-    ORDER BY date_heure_envoi"
-);
-$query->execute(['id_channel' => $idChannel]);
-$messages = $query->fetchAll();
-
-if (!$messages) {
-    // Si aucun message n'est trouvé, initialiser le tableau des messages à vide
-    $messages = [];
-}
-
-// Gérer l'envoi d'un nouveau message
-if (isset($_POST['message_submit']) && !empty($_POST['contenu'])) {
-    // Vérifier si le destinataire est actif avant d'envoyer le message
-    if (!$destinataire['est_actif_destinataire']) {
-        $_SESSION['error_message'] = "Impossible d'envoyer des messages à un utilisateur désactivé.";
-        header("Location: /?page=conversation&id_channel=$idChannel");
+    if (!$channelExistant) {
+        // Si le canal n'existe pas ou n'est pas actif, rediriger vers la page d'accueil
+        header('Location: /');
         exit;
     }
 
-    // Insérer le nouveau message dans la base de données
+    if ($channelExistant['est_groupe']) {
+        // Si le canal est un groupe, utiliser le nom du canal comme titre
+        $title = htmlspecialchars($channelExistant['nom_du_channel']);
+    } else {
+        // Sinon, récupérer les informations de l'autre utilisateur dans la conversation
+        $query = $dbh->prepare(
+            "SELECT utilisateur.prenom AS prenom_destinataire, utilisateur.nom AS nom_destinataire, utilisateur.est_actif AS est_actif_destinataire
+            FROM acces
+            INNER JOIN utilisateur ON acces.id_utilisateur = utilisateur.id_utilisateur
+            WHERE acces.id_channel = :id_channel AND utilisateur.id_utilisateur != :id_utilisateur"
+        );
+        $query->execute([
+            'id_channel' => $idChannel,
+            'id_utilisateur' => $idUtilisateur
+        ]);
+        $destinataire = $query->fetch();
+
+        if (!$destinataire) {
+            // Si l'autre utilisateur n'est pas trouvé, rediriger vers la page d'accueil
+            header('Location: /');
+            exit;
+        }
+
+        // Utiliser le nom et le prénom de l'autre utilisateur comme titre
+        $title = htmlspecialchars($destinataire['prenom_destinataire'] . ' ' . $destinataire['nom_destinataire']);
+    }
+
+    // Récupérer les messages de la conversation
     $query = $dbh->prepare(
-        "INSERT INTO message (date_heure_envoi, contenu, id_channel, id_utilisateur)
-        VALUES (NOW(), :contenu, :id_channel, :id_utilisateur)"
+        "SELECT message.*, utilisateur.prenom, utilisateur.nom 
+        FROM message
+        INNER JOIN utilisateur ON message.id_utilisateur = utilisateur.id_utilisateur
+        WHERE message.id_channel = :id_channel
+        ORDER BY date_heure_envoi"
     );
-    $query->execute([
-        'contenu' => htmlspecialchars($_POST['contenu']),
-        'id_channel' => $idChannel,
-        'id_utilisateur' => $idUtilisateur
-    ]);
-
-    // Mettre à jour la date du dernier message dans le canal
-    $query = $dbh->prepare("UPDATE channel SET date_heure_dernier_message = NOW() WHERE id_channel = :id_channel");
     $query->execute(['id_channel' => $idChannel]);
+    $messages = $query->fetchAll();
 
-    // Rediriger pour éviter la soumission multiple de formulaires
-    header("Location: /?page=conversation&id_channel=$idChannel");
+    if (!$messages) {
+        // Si aucun message n'est trouvé, initialiser le tableau des messages à vide
+        $messages = [];
+    }
+
+    // Gérer l'envoi d'un nouveau message
+    if (isset($_POST['message_submit']) && !empty($_POST['contenu'])) {
+        // Vérifier si le destinataire est actif avant d'envoyer le message
+        if (!$channelExistant['est_groupe'] && !$destinataire['est_actif_destinataire']) {
+            $_SESSION['error_message'] = "Impossible d'envoyer des messages à un utilisateur désactivé.";
+            header("Location: /?page=conversation&id_channel=$idChannel");
+            exit;
+        }
+
+        // Insérer le nouveau message dans la base de données
+        $query = $dbh->prepare(
+            "INSERT INTO message (date_heure_envoi, contenu, id_channel, id_utilisateur)
+            VALUES (NOW(), :contenu, :id_channel, :id_utilisateur)"
+        );
+        $query->execute([
+            'contenu' => htmlspecialchars($_POST['contenu']),
+            'id_channel' => $idChannel,
+            'id_utilisateur' => $idUtilisateur
+        ]);
+
+        // Mettre à jour la date du dernier message dans le canal
+        $query = $dbh->prepare("UPDATE channel SET date_heure_dernier_message = NOW() WHERE id_channel = :id_channel");
+        $query->execute(['id_channel' => $idChannel]);
+
+        // Rediriger pour éviter la soumission multiple de formulaires
+        header("Location: /?page=conversation&id_channel=$idChannel");
+        exit;
+    }
+} else {
+    // Si aucun destinataire ou canal n'est spécifié, rediriger vers la page d'accueil
+    header('Location: /');
     exit;
 }
+?>

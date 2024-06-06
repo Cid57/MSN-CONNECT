@@ -36,13 +36,13 @@ $query->execute(['id_utilisateur' => $idUtilisateur]);
 $discussions = $query->fetchAll();
 
 // Récupérer les groupes
-$query = $dbh->prepare("SELECT * FROM channel 
+$query = $dbh->prepare("SELECT channel.* FROM channel 
                         INNER JOIN acces ON channel.id_channel = acces.id_channel 
                         WHERE acces.id_utilisateur = :id_utilisateur 
                         AND est_groupe = 1 
                         AND est_actif = 1 
                         ORDER BY date_heure_dernier_message DESC 
-                        LIMIT 10");
+                        LIMIT 5");
 $query->execute(['id_utilisateur' => $idUtilisateur]);
 $groupes = $query->fetchAll();
 ?>
