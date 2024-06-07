@@ -3,8 +3,8 @@
     <img src="assets/img/logo-admin.png" alt="icone logo admin">
     <h1>Modifier un utilisateur</h1>
     <div class="actions">
-        <a href="/?page=administrateur"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/left.png" alt="left"></a>
-        <a href="/"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign"></a>
+        <a href="/?page=administrateur"><img src="https://img.icons8.com/3d-fluency/94/left.png" alt="left"></a>
+        <a href="/"><img src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign"></a>
     </div>
 </div>
 <!-- Fin de banderole -->
