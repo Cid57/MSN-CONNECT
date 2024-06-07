@@ -3,7 +3,6 @@
     font-size: 1.2rem;
     color: violet;
     margin-left: 1rem;
-
 }
 
 /* Section principale de la conversation */
@@ -19,7 +18,6 @@
 .content-right-section img {
     border-radius: 50%;
     margin-right: 0.5rem;
-
 }
 
 /* Style des titres dans la section */
@@ -47,7 +45,6 @@
     overflow-y: auto;
     flex-grow: 1;
     padding: 0.5rem;
-
 }
 
 /* Style de base pour les messages */
@@ -62,7 +59,6 @@
 .message-author {
     padding-bottom: 0.5rem;
     font-size: 1rem;
-
 }
 
 /* Alignement des messages envoyés et reçus */
@@ -85,7 +81,6 @@
     font-size: 0.9rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     margin-bottom: 0.5rem;
-
 }
 
 .message.sent .message-content {
@@ -219,8 +214,7 @@ button:hover {
     }
 }
 
-
-/* messages.css */
+/* Style pour les messages d'erreur */
 .error-message {
     background-color: #f8d7da;
     color: #721c24;

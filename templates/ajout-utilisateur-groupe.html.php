@@ -20,12 +20,14 @@
     </div>
 
     <form method="post" class="form-group">
-        <?php foreach ($utilisateurs as $utilisateur) : ?>
-            <label class="user-checkbox">
-                <input type="checkbox" name="utilisateur[]" value="<?= $utilisateur['id_utilisateur'] ?>">
-                <p><?= htmlspecialchars($utilisateur['prenom'] . ' ' . $utilisateur['nom']) . ' (' . htmlspecialchars($utilisateur['email']) . ')' ?></p>
-            </label>
-        <?php endforeach; ?>
+        <div class="user-list-container">
+            <?php foreach ($utilisateurs as $utilisateur) : ?>
+                <label class="user-checkbox">
+                    <input type="checkbox" name="utilisateur[]" value="<?= $utilisateur['id_utilisateur'] ?>">
+                    <p><?= htmlspecialchars($utilisateur['prenom'] . ' ' . $utilisateur['nom']) . ' (' . htmlspecialchars($utilisateur['email']) . ')' ?></p>
+                </label>
+            <?php endforeach; ?>
+        </div>
         <input type="hidden" name="id_channel" value="<?= htmlspecialchars($id_channel) ?>">
         <div class="sticky-button-container">
             <input type="submit" name="submit_button" value="Ajouter les utilisateurs sélectionnés" class="submit-button">

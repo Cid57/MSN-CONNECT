@@ -7,7 +7,7 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: #ffffff;
-    padding: 1rem 2rem;
+    padding: 0.5rem 0rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     margin-bottom: 30px;
@@ -83,12 +83,12 @@ body {
 
 .content-block {
     min-height: 400px;
-    /* Ensure both blocks have the same minimum height */
+
 }
 
 .form-block {
     min-height: 400px;
-    /* Ensure both blocks have the same minimum height */
+
 }
 
 .content {

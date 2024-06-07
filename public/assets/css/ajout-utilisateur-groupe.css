@@ -1,24 +1,27 @@
-/* body {
+/* Dégradé de fond */
+body {
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
 }
 
+/* Conteneur pour l'ajout d'utilisateur au groupe */
 .ajout-utilisateur-groupe {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #ffffff;
-    padding: 1rem 2rem;
+    padding: 0.5rem 0rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    margin-bottom: 30px;
 }
 
 .ajout-utilisateur-groupe img {
+    /* Taille de l'image */
     height: 50px;
     margin-right: 15px;
 }
 
 .ajout-utilisateur-groupe h1 {
+    /* Titre centré et stylisé */
     flex-grow: 1;
     margin: 0;
     color: #4A90E2;
@@ -28,11 +31,13 @@
 }
 
 .ajout-utilisateur-groupe .actions {
+    /* Conteneur pour les actions */
     display: flex;
     gap: 10px;
 }
 
 .ajout-utilisateur-groupe .actions a img {
+    /* Style des icônes d'action */
     height: 46px;
     width: 44px;
     cursor: pointer;
@@ -40,140 +45,187 @@
 }
 
 .ajout-utilisateur-groupe .actions a img:hover {
+    /* Effet au survol des icônes d'action */
     transform: scale(1.1);
 }
 
+/* Adaptation pour les petits écrans */
 @media (max-width: 768px) {
     .ajout-utilisateur-groupe {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        padding: 1rem;
     }
 
-    .ajout-utilisateur-groupe img,
+    .ajout-utilisateur-groupe img {
+        height: 40px;
+    }
+
     .ajout-utilisateur-groupe h1 {
-        margin: 10px 0;
+        font-size: 24px;
     }
 
     .ajout-utilisateur-groupe .actions {
         margin-top: 10px;
     }
+
+    .ajout-utilisateur-groupe .actions a img {
+        height: 36px;
+        width: 34px;
+    }
+
+    .form-container {
+        padding: 15px;
+        height: auto;
+    }
+
+    .form-container .recherche-barre input[type="text"] {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .form-container .recherche-barre button {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .form-group .user-checkbox {
+        padding: 8px;
+        margin: 8px 0;
+    }
+
+    .form-group .user-checkbox p {
+        font-size: 12px;
+    }
+
+    .sticky-button-container .submit-button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .message {
+        font-size: 14px;
+    }
 }
 
+/* Conteneur du formulaire */
 .form-container {
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
+    background-color: #f9f9f9;
+    border-radius: 5px;
     padding: 20px;
-    margin: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 650px;
-    max-height: 80vh;
+    max-width: 600px;
+    margin: 2rem auto;
     overflow: hidden;
-}
-
-@media (min-width: 1200px) {
-    .form-container {
-        max-height: 70vh;
-    }
-}
-
-@media (max-width: 768px) {
-    .form-container {
-        max-height: 90vh;
-    }
-}
-
-.form-group {
+    position: relative;
+    height: 60vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-container .recherche-barre {
+    /* Barre de recherche */
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
-.form-group label {
-    margin-bottom: 5px;
-    font-size: 16px;
-    color: #333;
-}
-
-.form-group input,
-.form-group select {
+.form-container .recherche-barre input[type="text"] {
+    /* Style de l'input de recherche */
+    border: 1px solid #ddd;
+    border-radius: 3px;
     padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
+    font-size: 14px;
+    width: 70%;
+    margin-right: 10px;
 }
 
-.form-group button {
-    padding: 10px 15px;
-    font-size: 16px;
+.form-container .recherche-barre button {
+    /* Style du bouton de recherche */
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    background-color: #4A90E2;
-    color: white;
+    padding: 10px 15px;
+    border-radius: 3px;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.form-group button:hover {
-    background-color: #357ABD;
-}
-
-.user-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    overflow-y: auto;
-    flex-grow: 1;
-}
-
-.user-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    margin-bottom: 10px;
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.user-list li:hover {
-    background-color: #f1f1f1;
-    transform: translateY(-2px);
+.form-container .recherche-barre button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-.user-details {
+/* Conteneur pour la liste des utilisateurs */
+.user-list-container {
+    flex-grow: 1;
+    max-height: calc(60vh - 150px);
+    overflow-y: auto;
+}
+
+/* Groupe de formulaires */
+.form-group {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
-.user-details strong {
-    font-size: 16px;
-    color: #333;
+.form-group .user-checkbox {
+    /* Style des cases à cocher des utilisateurs */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
-.user-details span {
-    font-size: 14px;
-    color: #666;
+.form-group .user-checkbox:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.user-actions a {
+.form-group .user-checkbox input[type="checkbox"] {
+    /* Style des cases à cocher */
+    width: 20px;
+    height: 20px;
+}
+
+/* Conteneur fixe pour le bouton de soumission */
+.sticky-button-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #f9f9f9;
+}
+
+.sticky-button-container .submit-button {
+    /* Style du bouton de soumission */
     background-color: #4A90E2;
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.user-actions a:hover {
+.sticky-button-container .submit-button:hover {
     background-color: #357ABD;
-} */
+    transform: scale(1.05);
+}
 
-.ajout-utilisateur-groupe img {
-    width: 80px;
+/* Style des messages */
+.message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
 }

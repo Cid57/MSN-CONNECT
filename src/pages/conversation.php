@@ -104,7 +104,7 @@ if ($idChannel) {
 
     if ($channelExistant['est_groupe']) {
         // Si le canal est un groupe, utiliser le nom du canal comme titre
-        $title = htmlspecialchars($channelExistant['nom_du_channel']);
+        $title = htmlspecialchars($channelExistant['nom_du_channel'] ?? '');
     } else {
         // Sinon, récupérer les informations de l'autre utilisateur dans la conversation
         $query = $dbh->prepare(
@@ -126,7 +126,7 @@ if ($idChannel) {
         }
 
         // Utiliser le nom et le prénom de l'autre utilisateur comme titre
-        $title = htmlspecialchars($destinataire['prenom_destinataire'] . ' ' . $destinataire['nom_destinataire']);
+        $title = htmlspecialchars(($destinataire['prenom_destinataire'] ?? '') . ' ' . ($destinataire['nom_destinataire'] ?? ''));
     }
 
     // Récupérer les messages de la conversation
@@ -160,7 +160,7 @@ if ($idChannel) {
             VALUES (NOW(), :contenu, :id_channel, :id_utilisateur)"
         );
         $query->execute([
-            'contenu' => htmlspecialchars($_POST['contenu']),
+            'contenu' => htmlspecialchars($_POST['contenu'] ?? ''),
             'id_channel' => $idChannel,
             'id_utilisateur' => $idUtilisateur
         ]);
@@ -178,4 +178,3 @@ if ($idChannel) {
     header('Location: /');
     exit;
 }
-?>

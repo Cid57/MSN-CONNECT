@@ -35,4 +35,3 @@ $channels = $query->fetchAll();
 $message = $_SESSION['message'] ?? '';
 // Supprimer le message après l'avoir récupéré
 unset($_SESSION['message']);
-

@@ -41,19 +41,19 @@
         </div>
 
         <div class="administrateur">
-            <h2>Gestion des espaces</h2>
+            <h2>Gestion des groupes</h2>
             <div class="grid-container">
                 <div class="grid-item">
                     <img src="assets/img/bulle-bleu.png" alt="Icone ajouter espace">
-                    <a href="/?page=admin-ajouter-espace"><input type="button" value="Ajouter espace"></a>
+                    <a href="/?page=admin-ajouter-espace"><input type="button" value="Ajouter groupe"></a>
                 </div>
                 <div class="grid-item">
                     <img src="assets/img/bulle-jaune.png" alt="Icone modifier espace">
-                    <a href="/?page=admin-modifier-espace"><input type="button" value="Modifier espace"></a>
+                    <a href="/?page=admin-modifier-espace"><input type="button" value="Modifier groupe"></a>
                 </div>
                 <div class="grid-item">
                     <img src="assets/img/bulle-rouge.png" alt="Icone supprimer espace">
-                    <a href="/?page=admin-supprimer-espace"><input type="button" value="Supprimer espace"></a>
+                    <a href="/?page=admin-supprimer-espace"><input type="button" value="Supprimer groupe"></a>
                 </div>
             </div>
         </div>

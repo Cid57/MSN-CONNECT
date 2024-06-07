@@ -1,27 +1,27 @@
+/* Dégradé de fond */
 body {
     background: linear-gradient(to bottom, #9da7d2, #4d5ea8);
-
 }
 
+/* Conteneur de gestion des administrateurs */
 .gestion-administrateur {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #ffffff;
-    padding: 1rem 2rem;
+    padding: 0.5rem 0rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-
 }
 
 .gestion-administrateur img {
+    /* Taille de l'image */
     height: 50px;
     margin-right: 15px;
 }
 
-
-
 .gestion-administrateur h1 {
+    /* Titre centré et stylisé */
     flex-grow: 1;
     margin: 0;
     color: #4A90E2;
@@ -31,11 +31,13 @@ body {
 }
 
 .gestion-administrateur .actions {
+    /* Conteneur pour les actions */
     display: flex;
     gap: 10px;
 }
 
 .gestion-administrateur .actions a img {
+    /* Style des icônes d'action */
     height: 46px;
     width: 44px;
     cursor: pointer;
@@ -43,9 +45,11 @@ body {
 }
 
 .gestion-administrateur .actions a img:hover {
+    /* Effet au survol des icônes d'action */
     transform: scale(1.1);
 }
 
+/* Adaptation pour les petits écrans */
 @media (max-width: 768px) {
     .gestion-administrateur {
         flex-direction: column;
@@ -63,16 +67,6 @@ body {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
 /* Style pour le conteneur de modification */
 .container-modifier {
     background-color: #fff;
@@ -83,15 +77,12 @@ body {
     margin: 2rem auto;
     transition: all 0.3s ease;
     overflow-x: auto;
-
-
 }
 
 .container-modifier:hover {
+    /* Effet de survol pour le conteneur */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
-
-
 
 /* Style pour le tableau */
 table {
@@ -101,6 +92,7 @@ table {
 }
 
 table thead {
+    /* Style pour l'en-tête du tableau */
     background-color: #f4f4f4;
 }
 
@@ -112,10 +104,12 @@ table thead th {
 }
 
 table tbody tr {
+    /* Transition pour le survol des lignes */
     transition: background-color 0.3s ease;
 }
 
 table tbody tr:hover {
+    /* Effet de survol pour les lignes du tableau */
     background-color: #f1f1f1;
 }
 
@@ -126,6 +120,7 @@ table tbody td {
 
 table tbody td input[type="text"],
 table tbody td input[type="email"] {
+    /* Style pour les champs de texte et email */
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -135,6 +130,7 @@ table tbody td input[type="email"] {
     font-family: 'Roboto', sans-serif;
 }
 
+/* Style pour le bouton de soumission */
 .submit-button {
     background-color: #4A90E2;
     color: white;
@@ -148,11 +144,11 @@ table tbody td input[type="email"] {
 }
 
 .submit-button:hover {
+    /* Effet de survol pour le bouton */
     background-color: #357ABD;
 }
 
-
-
+/* Adaptation du tableau pour les petits écrans */
 @media (max-width: 768px) {
     .gestion-administrateur {
         flex-direction: column;
@@ -170,7 +166,6 @@ table tbody td input[type="email"] {
 
     table thead {
         display: none;
-
     }
 
     table,
@@ -195,6 +190,7 @@ table tbody td input[type="email"] {
     }
 
     table tbody td:before {
+        /* Affichage des labels des colonnes */
         content: attr(data-label);
         position: absolute;
         left: 15px;

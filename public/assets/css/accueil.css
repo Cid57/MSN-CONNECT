@@ -1,3 +1,4 @@
+/* Conteneur principal de bienvenue */
 .welcome-container {
     background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
     border-radius: 10px;
@@ -12,6 +13,7 @@
     animation: fadeIn 1s ease-in-out;
 }
 
+/* Titre de bienvenue */
 .welcome-container h1 {
     font-size: 3.5em;
     color: #2c3e50;
@@ -20,6 +22,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Paragraphe de bienvenue */
 .welcome-container p {
     font-size: 2em;
     color: #2c3e50;
@@ -28,6 +31,7 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Icône de bienvenue */
 .welcome-container .welcome-icon {
     font-size: 3em;
     color: #3498db;
@@ -35,6 +39,7 @@
     animation: bounce 1.5s infinite;
 }
 
+/* Styles pour les petits écrans */
 @media (max-width: 600px) {
     .welcome-container {
         padding: 20px;
@@ -49,6 +54,7 @@
     }
 }
 
+/* Animation de fondu en entrée */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -59,6 +65,7 @@
     }
 }
 
+/* Animation de rebond */
 @keyframes bounce {
 
     0%,

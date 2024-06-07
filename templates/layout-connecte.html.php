@@ -13,12 +13,12 @@ $query = $dbh->prepare("SELECT * FROM utilisateur
 $query->execute(['id_utilisateur' => $idUtilisateur]);
 $utilisateur = $query->fetch();
 
-$prenomUtilisateur = $utilisateur['prenom'];
-$nomUtilisateur = $utilisateur['nom'];
+$prenomUtilisateur = $utilisateur['prenom'] ?? '';
+$nomUtilisateur = $utilisateur['nom'] ?? '';
 $avatarUtilisateur = $utilisateur['avatar'] ?? 'default-avatar.png'; // Utiliser l'avatar par défaut si non défini
-$estAdmin = $utilisateur['est_admin'];                               // Ajouter cette ligne pour récupérer le statut d'admin
-$dateCreationUtilisateur = $utilisateur['date_de_creation'];
-$statutUtilisateur = ['nom' => $utilisateur['nom_statut'], 'disponible' => $utilisateur['est_disponible']];
+$estAdmin = $utilisateur['est_admin'] ?? 0; // Ajouter cette ligne pour récupérer le statut d'admin
+$dateCreationUtilisateur = $utilisateur['date_de_creation'] ?? '';
+$statutUtilisateur = ['nom' => $utilisateur['nom_statut'] ?? '', 'disponible' => $utilisateur['est_disponible'] ?? 0];
 
 // Récupérer les discussions
 $query = $dbh->prepare("SELECT channel.*, utilisateur.prenom AS prenom_destinataire, utilisateur.nom AS nom_destinataire, utilisateur.est_actif 
@@ -47,8 +47,6 @@ $query->execute(['id_utilisateur' => $idUtilisateur]);
 $groupes = $query->fetchAll();
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -59,22 +57,20 @@ $groupes = $query->fetchAll();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Sedan+SC&display=swap" rel="stylesheet">
 
-
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/mobile.css">
 
     <?php if (file_exists("assets/css/$page.css")) : ?>
-        <link rel="stylesheet" href="assets/css/<?= $page ?>.css">
+        <link rel="stylesheet" href="assets/css/<?= htmlspecialchars($page) ?>.css">
     <?php endif; ?>
 
     <script defer src="assets/js/main.js"></script>
     <?php if (file_exists("assets/js/$page.js")) : ?>
-        <script defer src="assets/js/<?= $page ?>.js"></script>
+        <script defer src="assets/js/<?= htmlspecialchars($page) ?>.js"></script>
     <?php endif; ?>
 
     <title>MSNConnect</title>
     <meta name="description" content="La renaissance de MSN.">
-
 </head>
 
 <body>
@@ -97,8 +93,8 @@ $groupes = $query->fetchAll();
                         <h4><?= htmlspecialchars("$prenomUtilisateur $nomUtilisateur") ?></h4>
                     </a>
                     <!-- Affiche le bouton admin seulement si l'utilisateur est admin -->
-                    <?php if ($estAdmin): ?>
-                    <a href="/?page=administrateur" class="btn"><img src="assets/img/reglages.png" alt="reglage-admin"></a>
+                    <?php if ($estAdmin) : ?>
+                        <a href="/?page=administrateur" class="btn"><img src="assets/img/reglages.png" alt="reglage-admin"></a>
                     <?php endif; ?>
 
                     <a href="scripts.php?script=deconnexion"><img src="/assets/img/se-deconnecter.png" alt="logo-deconnexion"></a>
@@ -121,7 +117,7 @@ $groupes = $query->fetchAll();
 
                     <?php foreach ($discussions as $discussion) : ?>
                         <div class="message-prive-container">
-                            <a href="/index.php?page=conversation&id_channel=<?= $discussion['id_channel'] ?>" class="message-prive-link"><?= htmlspecialchars($discussion['prenom_destinataire'] . ' ' . $discussion['nom_destinataire']) ?></a>
+                            <a href="/index.php?page=conversation&id_channel=<?= htmlspecialchars($discussion['id_channel']) ?>" class="message-prive-link"><?= htmlspecialchars($discussion['prenom_destinataire'] . ' ' . $discussion['nom_destinataire']) ?></a>
                         </div>
                     <?php endforeach; ?>
 
@@ -139,14 +135,14 @@ $groupes = $query->fetchAll();
 
                     <?php foreach ($groupes as $groupe) : ?>
                         <div class="message-groupe-container">
-                            <a href="/index.php?page=conversation&id_channel=<?= $groupe['id_channel'] ?>" class="message-groupe-link"><?= htmlspecialchars($groupe['nom_du_channel']) ?></a>
+                            <a href="/index.php?page=conversation&id_channel=<?= htmlspecialchars($groupe['id_channel']) ?>" class="message-groupe-link"><?= htmlspecialchars($groupe['nom_du_channel'] ?? '') ?></a>
                         </div>
                     <?php endforeach; ?>
                 </div>
             </div>
 
             <div>
-                <?php require  "../templates/$page.html.php"; ?>
+                <?php require "../templates/$page.html.php"; ?>
             </div>
         </main>
     </div>

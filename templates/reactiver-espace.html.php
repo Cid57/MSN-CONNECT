@@ -1,10 +1,10 @@
 <!-- Banderole "gestion administrateur" -->
 <div class="gestion-administrateur">
-    <img src="assets/img/reactiver-group.png" alt="Icone réactiver un groupe" class="group-icon">
+    <img src="assets/img/discussion-de-groupe.png" alt="Icone réactiver un groupe" class="group-icon">
     <h1>Réactiver un groupe</h1>
     <div class="actions">
-        <a href="/?page=admin-ajouter-groupe"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/left.png" alt="left"></a>
-        <a href="/"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign"></a>
+        <a href="/?page=admin-ajouter-espace"><img src="https://img.icons8.com/3d-fluency/94/left.png" alt="left"></a>
+        <a href="/"><img src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign"></a>
     </div>
 </div>
 <!-- Fin banderole -->

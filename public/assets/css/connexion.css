@@ -1,4 +1,4 @@
-/*formulaire CONNEXION  */
+/* Formulaire de CONNEXION */
 .inscription {
     height: 100vh;
     margin: 0;
@@ -10,17 +10,16 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-
 }
 
-
+/* Styles pour les onglets, labels et boutons */
 .login-html .tab,
 .login-form .group .label,
 .login-form .group .button {
     text-transform: uppercase;
-
 }
 
+/* Onglets de la page de connexion */
 .login-html .tab {
     font-family: "Sedan SC", serif;
     font-size: 25px;
@@ -34,6 +33,7 @@
     color: #aaa;
 }
 
+/* Conteneur principal du formulaire de connexion */
 .login-wrap {
     width: 100%;
     margin: auto;
@@ -43,8 +43,7 @@
     border-radius: 30px;
 }
 
-
-
+/* Conteneur du contenu HTML de la page de connexion */
 .login-html {
     width: 100%;
     margin-top: 60px;
@@ -53,17 +52,19 @@
     border-radius: 30px;
 }
 
-
+/* Style des labels */
 label {
     padding-top: 5px;
     color: #aaa;
 }
 
+/* Conteneur du formulaire de connexion */
 .login-form {
     margin-bottom: 20px;
     min-height: 470px;
 }
 
+/* Styles des labels, inputs et boutons du formulaire de connexion */
 .login-form .group .label,
 .login-form .group .input,
 .login-form .group .button {
@@ -72,6 +73,7 @@ label {
     display: block;
 }
 
+/* Styles des inputs et boutons du formulaire de connexion */
 .login-form .group .input,
 .login-form .group .button {
     border: none;
@@ -80,7 +82,7 @@ label {
     background: rgba(255, 255, 255, .1);
 }
 
-
+/* Styles des labels du formulaire de connexion */
 .login-form .group .label {
     color: #aaa;
     font-size: 14px;
@@ -88,13 +90,14 @@ label {
     font-family: "Sedan SC", serif;
 }
 
+/* Styles des boutons du formulaire de connexion */
 .login-form .group .button {
     background: #9da7d2;
     margin-top: 40px;
     cursor: pointer;
 }
 
-
+/* Styles des boutons généraux */
 .group button {
     letter-spacing: 2px;
     font-size: 16px;
@@ -102,23 +105,21 @@ label {
     transition: all 0.3s ease;
 }
 
+/* Effet de survol pour les boutons */
 .group button:hover {
     transform: translateY(-3px);
 }
 
-
+/* Style pour la ligne horizontale */
 .hr {
     height: 2px;
     margin: 60px 0 40px 0;
     background: rgba(255, 255, 255, .2);
 }
 
-/* fin formulaire */
+/* Fin du formulaire de CONNEXION */
 
-
-
-
-/* icones d'oeil */
+/* Icônes d'oeil pour le mot de passe */
 .mdp-icon {
     position: relative;
     top: -42px;
@@ -130,6 +131,7 @@ label {
     color: rgb(221, 136, 136);
 }
 
+/* Styles pour les icônes d'oeil */
 .eye,
 .eye-off {
     position: absolute;
@@ -138,4 +140,4 @@ label {
     cursor: pointer;
 }
 
-/* fin */
+/* Fin des styles pour les icônes d'oeil */
