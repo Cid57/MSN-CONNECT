@@ -12,6 +12,7 @@
     <div class="content-right-section">
         <div class="chat-container">
             <h2><?= htmlspecialchars($title) ?></h2>
+
             <?php if (isset($_SESSION['error_message'])) : ?>
                 <div class="error-message">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -21,6 +22,7 @@
                 </div>
                 <?php unset($_SESSION['error_message']); ?>
             <?php endif; ?>
+
             <div class="message-container">
                 <?php if (!empty($messages)) : ?>
                     <?php foreach ($messages as $msg) : ?>

@@ -37,6 +37,10 @@
             <?php if ($messageMdp) : ?>
                 <div class="message"><?= htmlspecialchars($messageMdp) ?></div>
             <?php endif; ?>
+            <?php if ($messageSuccee) : ?>
+                <div class="message_succee"><?= htmlspecialchars($messageSuccee) ?></div>
+            <?php endif; ?>
+
 
             <form method="post">
                 <h2>Changer de mot de passe</h2>

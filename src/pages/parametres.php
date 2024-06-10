@@ -23,6 +23,7 @@ if ($idUtilisateur) {
 
 $messageAvatar = '';
 $messageMdp = '';
+$messageSuccee = '';
 
 if (isset($_POST['modifier_mdp'])) {
     $ancienMdp = $_POST['ancien_mdp'];
@@ -37,7 +38,7 @@ if (isset($_POST['modifier_mdp'])) {
                 'nouveau_mdp' => $nouveauMdpHash,
                 'id_utilisateur' => $idUtilisateur
             ]);
-            $messageMdp = "Mot de passe modifié avec succès.";
+            $messageSuccee = "Mot de passe modifié avec succès.";
         } else {
             $messageMdp = "Les nouveaux mots de passe ne correspondent pas.";
         }
