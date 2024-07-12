@@ -25,7 +25,7 @@ if ($idDestinataire && !$idChannel && $idDestinataire != $idUtilisateur) {
     $query->execute(['id_destinataire' => $idDestinataire]);
     $destinataire = $query->fetch();
 
-    if (!$destinataire || !$destinataire['est_actif']) {
+    if (!$destinataire['est_actif']) {
         // Si le destinataire n'existe pas ou est inactif, rediriger avec un message d'erreur
         $_SESSION['error_message'] = "Impossible de démarrer une conversation avec un utilisateur désactivé.";
         header('Location: /?page=liste-de-contact');

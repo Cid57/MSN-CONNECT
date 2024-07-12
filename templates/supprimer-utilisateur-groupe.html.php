@@ -3,8 +3,8 @@
     <img src="assets/img/supprimer-user.png" alt="Icone supprimer un utilisateur" class="user-icon">
     <h1>Supprimer un utilisateur du groupe</h1>
     <div class="actions">
-        <a href="/?page=administrateur"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/left.png" alt="left"></a>
-        <a href="/"><img width="44" height="46" src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign"></a>
+        <a href="/?page=admin-ajouter-espace"><img src="https://img.icons8.com/3d-fluency/94/left.png" alt="left"></a>
+        <a href="/"><img src="https://img.icons8.com/3d-fluency/94/delete-sign.png" alt="delete-sign"></a>
     </div>
 </div>
 <!-- Fin banderole -->
@@ -17,10 +17,6 @@
     <div class="recherche-barre">
         <input type="text" id="recherche-utilisateur" placeholder="Rechercher un utilisateur...">
         <button type="button" id="recherche-button">Rechercher</button>
-    </div>
-
-    <div>
-        <p class="warning">Attention cette action est irréversible.</p>
     </div>
 
     <form method="post" class="form-group">

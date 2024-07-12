@@ -20,7 +20,6 @@
                 <p><?= $espace['nom_du_channel'] ?></p>
             </label>
         <?php endforeach; ?>
-        <p class="warning">Attention cette action est irréversible.</p>
         <input type="submit" name="submit_button" value="Supprimer les espaces sélectionnés" class="submit-button">
     </form>
 </div>

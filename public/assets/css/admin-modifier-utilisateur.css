@@ -93,7 +93,7 @@ table {
 
 table thead {
     /* Style pour l'en-tête du tableau */
-    background-color: #f4f4f4;
+    background-color: #171c32;
 }
 
 table thead th {
@@ -101,6 +101,7 @@ table thead th {
     text-align: left;
     border-bottom: 2px solid #ddd;
     font-size: 16px;
+    color: #ffffff;
 }
 
 table tbody tr {

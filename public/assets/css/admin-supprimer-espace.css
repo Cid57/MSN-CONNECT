@@ -133,13 +133,6 @@ form {
     transform: translateY(-2px);
 }
 
-/* Style pour les messages d'avertissement */
-.warning {
-    text-align: center;
-    color: #E74C3C;
-    margin-top: 20px;
-    font-size: 24px;
-}
 
 /* Style pour les messages */
 .message {

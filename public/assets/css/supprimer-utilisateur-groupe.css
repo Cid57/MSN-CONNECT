@@ -129,6 +129,7 @@ body {
     border-radius: 5px;
     border: 1px solid #ddd;
     transition: box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .form-group .user-checkbox:hover {

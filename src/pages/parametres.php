@@ -25,6 +25,13 @@ $messageAvatar = '';
 $messageMdp = '';
 $messageSuccee = '';
 
+// Fonction de validation de mot de passe
+function validerMotDePasse($motDePasse)
+{
+    // Mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial
+    return preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$/', $motDePasse);
+}
+
 if (isset($_POST['modifier_mdp'])) {
     $ancienMdp = $_POST['ancien_mdp'];
     $nouveauMdp = $_POST['nouveau_mdp'];
@@ -32,13 +39,17 @@ if (isset($_POST['modifier_mdp'])) {
 
     if (password_verify($ancienMdp, $utilisateur['mot_de_passe'])) {
         if ($nouveauMdp === $confirmerMdp) {
-            $nouveauMdpHash = password_hash($nouveauMdp, PASSWORD_DEFAULT);
-            $updateQuery = $dbh->prepare("UPDATE utilisateur SET mot_de_passe = :nouveau_mdp WHERE id_utilisateur = :id_utilisateur");
-            $updateQuery->execute([
-                'nouveau_mdp' => $nouveauMdpHash,
-                'id_utilisateur' => $idUtilisateur
-            ]);
-            $messageSuccee = "Mot de passe modifié avec succès.";
+            if (validerMotDePasse($nouveauMdp)) {
+                $nouveauMdpHash = password_hash($nouveauMdp, PASSWORD_DEFAULT);
+                $updateQuery = $dbh->prepare("UPDATE utilisateur SET mot_de_passe = :nouveau_mdp WHERE id_utilisateur = :id_utilisateur");
+                $updateQuery->execute([
+                    'nouveau_mdp' => $nouveauMdpHash,
+                    'id_utilisateur' => $idUtilisateur
+                ]);
+                $messageSuccee = "Mot de passe modifié avec succès.";
+            } else {
+                $messageMdp = "Le nouveau mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.";
+            }
         } else {
             $messageMdp = "Les nouveaux mots de passe ne correspondent pas.";
         }
@@ -56,23 +67,28 @@ if (isset($_POST['modifier_avatar']) && isset($_FILES['avatar']) && $_FILES['ava
     $fileExtension = strtolower(end($fileNameCmps));
 
     $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
-    if (in_array($fileExtension, $allowedfileExtensions)) {
+    if (in_array($fileExtension, $allowedfileExtensions) && $fileSize <= 5000000) { // 5MB max file size
         $uploadFileDir = './uploads/';
-        $dest_path = $uploadFileDir . $fileName;
+        $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+        $dest_path = $uploadFileDir . $newFileName;
 
         if (move_uploaded_file($fileTmpPath, $dest_path)) {
-            $updateQuery = $dbh->prepare("UPDATE utilisateur SET avatar = :avatar WHERE id_utilisateur = :id_utilisateur");
-            $updateQuery->execute([
-                'avatar' => $fileName,
-                'id_utilisateur' => $idUtilisateur
-            ]);
-            $messageAvatar = "Avatar modifié avec succès.";
-            $avatar = $fileName; // Mettre à jour la variable $avatar avec le nouveau nom de fichier
+            try {
+                $updateQuery = $dbh->prepare("UPDATE utilisateur SET avatar = :avatar WHERE id_utilisateur = :id_utilisateur");
+                $updateQuery->execute([
+                    'avatar' => $newFileName,
+                    'id_utilisateur' => $idUtilisateur
+                ]);
+                $messageAvatar = "Avatar modifié avec succès.";
+                $avatar = $newFileName;
+            } catch (PDOException $e) {
+                $messageAvatar = "Erreur lors de la mise à jour de l'avatar : " . $e->getMessage();
+            }
         } else {
             $messageAvatar = "Une erreur est survenue lors du téléchargement de l'avatar.";
         }
     } else {
-        $messageAvatar = "Seuls les fichiers avec les extensions suivantes sont autorisés : " . implode(', ', $allowedfileExtensions);
+        $messageAvatar = "Seuls les fichiers avec les extensions suivantes sont autorisés : " . implode(', ', $allowedfileExtensions) . " et de taille maximale 5MB.";
     }
 }
 
