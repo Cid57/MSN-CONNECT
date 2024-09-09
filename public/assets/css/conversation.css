@@ -170,6 +170,7 @@ button:hover {
     .content-right-section,
     .chat-container {
         padding: 0.5rem;
+     
     }
 
     .message-content {
@@ -187,6 +188,8 @@ button:hover {
     button {
         padding: 0.4rem;
     }
+
+   
 }
 
 /* Media queries pour les très petits écrans */
@@ -195,6 +198,7 @@ button:hover {
     .content-right-section,
     .chat-container {
         padding: 0.25rem;
+        height: 84.8vh;
     }
 
     .message-content {
@@ -212,6 +216,15 @@ button:hover {
     button {
         padding: 0.3rem;
     }
+
+    .sidebar-left {
+        display: none;
+    }
+
+        .content-right-section h2 {
+            margin: 0.4rem 0 1rem 1rem;
+        }
+
 }
 
 /* Style pour les messages d'erreur */

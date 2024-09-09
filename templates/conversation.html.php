@@ -23,19 +23,32 @@
                 <?php unset($_SESSION['error_message']); ?>
             <?php endif; ?>
 
+
+
             <div class="message-container">
+                <!-- Vérifie s'il y a des messages à afficher -->
                 <?php if (!empty($messages)) : ?>
+                    <!-- Boucle sur les messages récupérés de la base de données -->
                     <?php foreach ($messages as $msg) : ?>
                         <div class="message <?= $msg['id_utilisateur'] == $_SESSION['id_utilisateur'] ? 'sent' : 'received' ?>">
-                            <p class="message-author"><?= htmlspecialchars($msg['prenom'] . ' ' . $msg['nom']) ?>:</p>
-                            <p class="message-content"><?= nl2br(htmlspecialchars($msg['contenu'])) ?></p>
+                            <!-- Affiche le nom de l'expéditeur -->
+                            <p class="message-author"><?= $msg['prenom'] . ' ' . $msg['nom'] ?>:</p>
+                            <!-- Affiche le contenu du message -->
+                            <p class="message-content"><?= nl2br($msg['contenu']) ?></p>
+                            <!-- Affiche l'heure et la date d'envoi du message -->
                             <p class="message-time"><?= date('d/m/Y H:i', strtotime($msg['date_heure_envoi'])) ?></p>
                         </div>
                     <?php endforeach; ?>
                 <?php else : ?>
+                    <!-- Si aucun message n'est disponible, affiche un message vide -->
                     <p>Aucun message à afficher pour le moment.</p>
                 <?php endif; ?>
             </div>
+
+
+
+
+
             <?php if ($channelExistant['est_groupe'] || $destinataire['est_actif_destinataire']) : ?>
                 <form id="message-form" method="POST" class="message-form">
                     <div class="form-controls">

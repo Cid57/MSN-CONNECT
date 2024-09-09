@@ -10,6 +10,9 @@ if (empty($_SESSION['id_utilisateur'])) {
     exit;
 }
 
+
+
+
 // Récupérer l'ID de l'utilisateur connecté
 $idUtilisateur = $_SESSION['id_utilisateur'];
 
@@ -31,6 +34,9 @@ if ($idDestinataire && !$idChannel && $idDestinataire != $idUtilisateur) {
         header('Location: /?page=liste-de-contact');
         exit;
     }
+
+
+
 
     // Vérifier si une conversation existe déjà entre l'utilisateur et le destinataire
     $query = $dbh->prepare(
@@ -74,10 +80,14 @@ if ($idDestinataire && !$idChannel && $idDestinataire != $idUtilisateur) {
         }
     }
 
+
+
     // Rediriger vers la page de conversation avec l'ID du canal
     header('Location: /?page=conversation&id_channel=' . $idChannel);
     exit;
 }
+
+
 
 if ($idChannel) {
     // Vérifier si l'utilisateur a accès au groupe ou à la conversation
@@ -90,6 +100,8 @@ if ($idChannel) {
         header('Location: /');
         exit;
     }
+
+
 
     // Récupérer les informations du canal
     $query = $dbh->prepare("SELECT * FROM channel WHERE id_channel = :id_channel AND est_actif = 1");
@@ -129,6 +141,11 @@ if ($idChannel) {
         $title = htmlspecialchars(($destinataire['prenom_destinataire'] ?? '') . ' ' . ($destinataire['nom_destinataire'] ?? ''));
     }
 
+
+
+
+
+
     // Récupérer les messages de la conversation
     $query = $dbh->prepare(
         "SELECT message.*, utilisateur.prenom, utilisateur.nom 
@@ -144,6 +161,9 @@ if ($idChannel) {
         // Si aucun message n'est trouvé, initialiser le tableau des messages à vide
         $messages = [];
     }
+
+
+
 
     // Gérer l'envoi d'un nouveau message
     if (isset($_POST['message_submit']) && !empty($_POST['contenu'])) {
@@ -173,6 +193,9 @@ if ($idChannel) {
         header("Location: /?page=conversation&id_channel=$idChannel");
         exit;
     }
+
+
+    
 } else {
     // Si aucun destinataire ou canal n'est spécifié, rediriger vers la page d'accueil
     header('Location: /');

@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['submit_button'])) {
         $query->execute($_POST['utilisateur']);
 
         // Stocker le message de confirmation dans la session
-        $_SESSION['message'] = "Les utilisateurs sélectionnés ont été supprimés avec succès.";
+        $_SESSION['message'] = "Les utilisateurs sélectionnés ont été désactivés avec succès.";
         header('Location: /?page=admin-supprimer-utilisateur');
         exit;
     } else {

@@ -193,26 +193,7 @@ header nav {
     border: 2px solid #4d5ea8;
 }
 
-/* Ajout de styles responsives pour les éléments <h4> */
-@media (max-width: 768px) {
 
-    .top-block h4,
-    .bottom-block h4 {
-        font-size: 1.2rem;
-        padding: 0.8rem;
-
-    }
-}
-
-@media (max-width: 480px) {
-
-    .top-block h4,
-    .bottom-block h4 {
-        font-size: 1rem;
-        padding: 0.5rem;
-
-    }
-}
 
 .message-prive {
     padding: 0.5rem;
@@ -312,7 +293,7 @@ span {
 }
 
 /* Media Queries pour responsivité */
-@media (max-width: 1024px) {
+@media (max-width: 480px) {
     .container {
         flex-direction: column;
     }
@@ -353,9 +334,7 @@ span {
         width: 50px;
     }
 
-    .logo-container h1 {
-        font-size: 1.2rem;
-    }
+   
 
     .menu-list img {
         width: 40px;
@@ -399,13 +378,18 @@ span {
 
 @media (max-width: 480px) {
     .logo-container img {
-        height: 40px;
-        width: 40px;
+        height: 44px;
+        width: 60px;
+    }
+    .logo-container h1 {
+        margin-left: 13px;
     }
 
-    .logo-container h1 {
-        font-size: 1rem;
+    .menu-list {
+     padding-top: 20px;
+     padding-left: 60px;
     }
+
 
     .menu-list img {
         width: 30px;
@@ -575,5 +559,85 @@ span {
 
     button {
         padding: 0.2rem;
+    }
+}
+
+/* Ajout de styles responsives pour les éléments <h4> */
+@media (max-width: 768px) {
+
+    .top-block h4,
+    .bottom-block h4 {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+
+    }
+}
+
+@media (max-width: 480px) {
+
+    .top-block h4,
+    .bottom-block h4 {
+        font-size: 1rem;
+        padding: 0.5rem;
+
+    }
+}
+
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .logo-container h1 {
+        font-size: 1.2rem;
+    }
+
+    .menu-list a {
+        margin-left: 15px;
+    }
+
+    .menu-list h4 {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-container {
+        margin-bottom: 15px;
+    }
+
+    .logo-container img {
+        height: 40px;
+        margin-right: 8px;
+    }
+
+    .logo-container h1 {
+        font-size: 1.2rem;
+    }
+
+    .menu-list {
+   
+        width: 100%;
+    }
+
+    .menu-list a {
+       
+        align-items: center;
+    }
+
+    .menu-list img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .menu-list h4 {
+        font-size: 0.8rem;
+        margin-left: 8px;
     }
 }

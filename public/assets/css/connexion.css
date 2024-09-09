@@ -1,6 +1,6 @@
 /* Formulaire de CONNEXION */
 .inscription {
-    /* height: 100vh; */
+    height: 100vh;
     margin: 0;
     color: #6a6f8c;
     font: 600 16px/18px 'Open Sans', sans-serif;
@@ -141,3 +141,51 @@ label {
 }
 
 /* Fin des styles pour les icônes d'oeil */
+
+
+
+header {
+  background-color: transparent;
+}
+
+
+
+/* Adaptation mobile de la page de connexion */
+@media (max-width: 480px) {
+    .login-wrap {
+        max-width: 80%;
+        height: 67vh;
+        border-radius: 30px;
+    }
+
+    .login-html {
+        padding: 50px 20px;
+        border-radius: 30px;
+        height: 67vh;
+    }
+
+   
+    .login-html .tab {
+        margin-left: 20%;
+        
+    }
+
+    .login-form .group .label {
+        font-size: 12px;
+    }
+
+
+
+    .group .input,
+    .group .button {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+ 
+
+    .mdp-icon {
+      right: -6px;
+    }
+
+}
