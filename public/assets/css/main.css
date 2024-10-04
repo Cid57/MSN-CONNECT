@@ -149,7 +149,8 @@ header nav {
 .sidebar-left {
     background-color: #171c32;
     width: 260px;
-    height: 87.6vh;
+    /* height: 87.6vh; */
+    height: 100vh;
     float: left;
     display: flex;
     flex-direction: column;

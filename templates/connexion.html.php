@@ -24,7 +24,7 @@
                                 <input type="email" class="input" name="email-connexion" value="<?= $_POST['email-connexion'] ?? '' ?>">
                                 <!-- PHP vérifie si une erreur existe pour l'email et l'affiche si c'est le cas -->
                                 <?php if (!empty($errors['email-connexion'])) : ?>
-                                    <p class="message-erreur"><?= ($errors['email-connexion']) ?></p>
+                                    <p class="message-erreur" aria-live="assertive"><?= ($errors['email-connexion']) ?></p>
                                 <?php endif ?>
                             </div>
                             <br>
@@ -32,26 +32,26 @@
                             <div class="group">
                                 <label for="pass" class="label">Mot de passe</label>
                                 <input type="password" id="mdp1" class="input mdp-input" name="mdp-connexion">
-                               
+
                                 <div class="mdp-icon">
-                                    <i data-feather="eye" class="eye"></i>
-                                    <i data-feather="eye-off" class="eye-off" style="display: none;"></i>
+                                    <i data-feather="eye" class="eye" style="display: none;"></i>
+                                    <i data-feather="eye-off" class="eye-off"></i>
                                 </div>
                                 <br>
                                 <!-- PHP vérifie si une erreur existe pour le mot de passe et l'affiche si c'est le cas -->
                                 <?php if (!empty($errors['mdp-connexion'])) : ?>
-                                    <p class="message-erreur"><?= ($errors['mdp-connexion']) ?></p>
+                                    <p class="message-erreur" aria-live="assertive"><?= ($errors['mdp-connexion']) ?></p>
                                 <?php endif ?>
                             </div>
                             <!-- PHP vérifie si une erreur générale de connexion existe et l'affiche si c'est le cas -->
                             <?php if (!empty($errors['login_error'])) : ?>
-                                <p class="message-erreur"><?= ($errors['login_error']) ?></p>
+                                <p class="message-erreur" aria-live="assertive"><?= ($errors['login_error']) ?></p>
                             <?php endif ?>
-                     
+
                             <div class="group">
-                                <button class="button" type="submit" name="connexion-submit">Se connecter</button>
+                                <button class="button" type="submit" name="connexion-submit" aria-label="Connexion sécurisée">Se connecter</button>
                             </div>
-                    
+
                             <hr class="hr">
                             <footer class="foot-lnk">
                                 <a href="/?page=mdp-reset">Mot de passe oublié ?</a>

@@ -163,7 +163,6 @@ header {
         border-radius: 30px;
         height: 67vh;
     }
-
    
     .login-html .tab {
         margin-left: 20%;
@@ -174,15 +173,12 @@ header {
         font-size: 12px;
     }
 
-
-
     .group .input,
     .group .button {
         padding: 10px;
         font-size: 12px;
     }
 
- 
 
     .mdp-icon {
       right: -6px;

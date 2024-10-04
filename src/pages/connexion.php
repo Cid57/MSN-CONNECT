@@ -46,7 +46,3 @@ if (isset($_POST['connexion-submit'])) {
         $errors['login_error'] = "Veuillez remplir tous les champs";
     }
 }
-
-
-
-

@@ -2,5 +2,5 @@
 
 // Effacer la session
 session_destroy();
-header("Location: /");
+header("Location: /?page=connexion");
 exit;

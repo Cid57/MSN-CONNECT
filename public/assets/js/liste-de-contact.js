@@ -8,7 +8,7 @@ function rechercherContacts() {
     // Parcourir chaque contact pour vérifier s'il correspond à la recherche
     contacts.forEach(function(contact) {
         // Récupérer le nom complet du contact et le convertir en minuscules
-        var contactName = contact.querySelector('.contact-details strong').textContent.toLowerCase();
+        let contactName = contact.querySelector('.contact-details strong').textContent.toLowerCase();
 
         // Vérifier si le nom du contact contient la valeur de recherche
         if (contactName.includes(rechercheValue)) {

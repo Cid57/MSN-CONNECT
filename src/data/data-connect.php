@@ -12,7 +12,7 @@ try {
         $user, // Nom d'utilisateur
         $password, // Mot de passe
         [
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // Mode de récupération par défaut des données (associatif)
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // Mode de récupération par défaut des données
         ]
     );
 } catch (PDOException $e) {

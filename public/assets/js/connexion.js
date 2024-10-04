@@ -1,23 +1,28 @@
+// Ecoute l'événement lorsque le DOM est entièrement chargé
 document.addEventListener("DOMContentLoaded", () => {
-  feather.replace();
-
+  // Sélectionne toutes les icônes avec la classe "mdp-icon"
   document.querySelectorAll(".mdp-icon").forEach((icon) => {
+    // Récupère l'input correspondant à l'icône
     const passwordInput = icon.previousElementSibling;
-    const eye = icon.querySelector(".eye");
-    const eyeOff = icon.querySelector(".eye-off");
+    const eye = icon.querySelector(".eye"); // Icone 'oeil' (révèle)
+    const eyeOff = icon.querySelector(".eye-off"); // Icone 'œil barré' (masque)
 
-    // Révèle le mot de passe
+    // Ajoute un événement au clic sur l'icône "œil" pour révéler le mot de passe
     eye.addEventListener("click", () => {
-      passwordInput.type = "text";
-      eye.style.display = "none";
-      eyeOff.style.display = "block";
+      passwordInput.type = "text"; // Affiche le mot de passe
+      eye.style.display = "none"; // Masque l'icône 'œil'
+      eyeOff.style.display = "block"; // Affiche l'icône 'œil barré'
     });
 
-    // Masque le mot de passe
+    // Ajoute un événement au clic sur l'icône "œil barré" pour masquer le mot de passe
     eyeOff.addEventListener("click", () => {
-      passwordInput.type = "password";
-      eyeOff.style.display = "none";
-      eye.style.display = "block";
+      passwordInput.type = "password"; // Masque le mot de passe
+      eyeOff.style.display = "none"; // Masque l'icône 'œil barré'
+      eye.style.display = "block"; // Affiche l'icône 'œil'
     });
   });
 });
+
+
+
+

@@ -4,12 +4,11 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Vérifier si l'utilisateur est connecté, sinon le rediriger vers la page de connexion
+// Vérifier si l'utilisateur est connecté
 if (empty($_SESSION['id_utilisateur'])) {
     header('Location: /?page=connexion');
     exit;
 }
-
 
 
 
@@ -34,8 +33,6 @@ if ($idDestinataire && !$idChannel && $idDestinataire != $idUtilisateur) {
         header('Location: /?page=liste-de-contact');
         exit;
     }
-
-
 
 
     // Vérifier si une conversation existe déjà entre l'utilisateur et le destinataire
@@ -140,10 +137,6 @@ if ($idChannel) {
         // Utiliser le nom et le prénom de l'autre utilisateur comme titre
         $title = htmlspecialchars(($destinataire['prenom_destinataire'] ?? '') . ' ' . ($destinataire['nom_destinataire'] ?? ''));
     }
-
-
-
-
 
 
     // Récupérer les messages de la conversation
