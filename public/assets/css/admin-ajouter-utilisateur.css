@@ -70,7 +70,7 @@ body {
 /* Adaptation en colonne pour les petits écrans */
 @media (max-width: 768px) {
     .gestion-administrateur {
-       
+
         align-items: center;
         text-align: center;
     }
@@ -97,6 +97,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: box-shadow 0.3s ease-in-out;
+    height: 68vh;
 }
 
 /* Largeur maximale pour les écrans plus larges */

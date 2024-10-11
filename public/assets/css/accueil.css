@@ -1,12 +1,24 @@
 /* Conteneur principal de bienvenue */
+/* .welcome-container {
+    background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    height: 90.1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+} */
 .welcome-container {
     background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     padding: 30px;
     text-align: center;
-    /* height: 87vh; */
-    height: 93vh;
+    min-height: calc(100vh - 100px);
     display: flex;
     flex-direction: column;
     justify-content: center;

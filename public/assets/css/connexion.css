@@ -46,7 +46,7 @@
 /* Conteneur du contenu HTML de la page de connexion */
 .login-html {
     width: 100%;
-    margin-top: 60px;
+    margin-top: 140px;
     padding: 80px 70px 50px 70px;
     background: rgba(40, 57, 101, .7);
     border-radius: 30px;
@@ -145,7 +145,7 @@ label {
 
 
 header {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 
@@ -163,10 +163,10 @@ header {
         border-radius: 30px;
         height: 67vh;
     }
-   
+
     .login-html .tab {
         margin-left: 20%;
-        
+
     }
 
     .login-form .group .label {
@@ -181,7 +181,7 @@ header {
 
 
     .mdp-icon {
-      right: -6px;
+        right: -6px;
     }
 
 }

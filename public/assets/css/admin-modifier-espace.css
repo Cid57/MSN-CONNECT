@@ -52,7 +52,6 @@ body {
 /* Adaptation pour les petits écrans */
 @media (max-width: 768px) {
     .gestion-administrateur {
-      
         align-items: center;
         text-align: center;
     }
@@ -70,18 +69,22 @@ body {
 /* Style pour la section globale des canaux */
 .modifier-channel {
     background-color: #f9f9f9;
-    border-radius: 5px;
-    padding: 20px;
-    max-width: 600px;
+    border-radius: 8px;
+    padding: 40px;
+    max-width: 800px;
     margin: 2rem auto;
-    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 }
 
-/* Style pour le titre de la section */
-.modifier-channel .modifier-section h2 {
+.modifier-channel:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modifier-channel h2 {
     color: #333;
     font-size: 28px;
-    margin-bottom: 26px;
+    margin-bottom: 20px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
@@ -102,28 +105,27 @@ body {
     margin: 0;
 }
 
-/* Style pour chaque élément de la liste */
 .modifier-channel .modifier-list li {
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
     display: flex;
-    flex-direction: column;
     gap: 10px;
+    /* Aligner les boutons en ligne */
+    justify-content: space-between;
     transition: box-shadow 0.3s ease;
 }
 
 .modifier-channel .modifier-list li:hover {
-    /* Effet au survol des éléments de la liste */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Conteneur pour les actions sur les canaux */
 .channel-actions {
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
     gap: 10px;
 }
 
@@ -136,60 +138,91 @@ body {
     gap: 10px;
 }
 
-.modify-form input[type="text"] {
-    /* Style des inputs de texte */
-    flex: 1;
-}
-
-/* Style pour les inputs de texte */
+/* Style des inputs de texte */
 .modifier-channel input[type="text"] {
+    flex: 1;
     border: 1px solid #ddd;
-    border-radius: 3px;
-    padding: 5px 10px;
-    font-size: 14px;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
     transition: border-color 0.3s ease;
 }
 
 .modifier-channel input[type="text"]:focus {
-    /* Couleur de bordure au focus */
     border-color: #4A90E2;
     outline: none;
 }
 
-/* Style pour les boutons de modification */
+/* Style pour les boutons */
 .modifier-channel .btn-modifier,
 .modifier-channel .btn-ajouter,
 .modifier-channel .btn-supprimer {
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .modifier-channel .btn-ajouter {
-    /* Couleur spécifique pour le bouton ajouter */
     background-color: #28a745;
 }
 
 .modifier-channel .btn-supprimer {
-    /* Couleur spécifique pour le bouton supprimer */
     background-color: #dc3545;
 }
 
-.modifier-channel .btn-modifier:hover {
-    /* Couleur et effet au survol pour le bouton modifier */
-    background-color: #0056b3;
+
+
+
+/* Responsivité pour les écrans moyens et petits */
+@media (max-width: 768px) {
+
+    .modify-form,
+    .add-user-form,
+    .remove-user-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Adapter les boutons à la largeur de l'écran */
+    .modify-form input[type="submit"],
+    .add-user-form input[type="submit"],
+    .remove-user-form input[type="submit"] {
+        width: 100%;
+        /* Prendre toute la largeur */
+        margin-bottom: 10px;
+        /* Espacement entre les boutons */
+    }
+
+    .modifier-channel {
+        max-width: 100%;
+    }
 }
 
-.modifier-channel .btn-ajouter:hover {
-    /* Couleur et effet au survol pour le bouton ajouter */
-    background-color: #218838;
-}
+/* Pour les très petits écrans, moins de 480px */
+@media (max-width: 480px) {
 
-.modifier-channel .btn-supprimer:hover {
-    /* Couleur et effet au survol pour le bouton supprimer */
-    background-color: #c82333;
+    .modify-form,
+    .add-user-form,
+    .remove-user-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .modify-form input[type="text"],
+    .add-user-form input[type="submit"],
+    .remove-user-form input[type="submit"] {
+        width: 100%;
+        /* Occuper toute la largeur de l'écran */
+    }
+
+    .modify-form input[type="submit"],
+    .add-user-form input[type="submit"],
+    .remove-user-form input[type="submit"] {
+        margin-bottom: 10px;
+        /* Ajout d'espacement entre les boutons */
+    }
 }

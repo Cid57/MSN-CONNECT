@@ -19,8 +19,6 @@
         <button type="button" id="recherche-button">Rechercher</button>
     </div>
 
-
-
     <form method="post" class="table-container">
         <?php foreach ($utilisateurs as $utilisateur) : ?>
             <label class="user-checkbox">

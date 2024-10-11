@@ -52,7 +52,7 @@ body {
 /* Adaptation pour les petits écrans */
 @media (max-width: 768px) {
     .gestion-administrateur {
-    
+
         align-items: center;
         text-align: center;
     }
@@ -73,10 +73,12 @@ body {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    max-width: 1030px;
-    margin: 2rem auto;
+    max-width: 1060px;
+    margin: 7rem auto;
     transition: all 0.3s ease;
     overflow-x: auto;
+    max-height: 500px;
+
 }
 
 .container-modifier:hover {
@@ -152,7 +154,7 @@ table tbody td input[type="email"] {
 /* Adaptation du tableau pour les petits écrans */
 @media (max-width: 768px) {
     .gestion-administrateur {
-        
+
         text-align: center;
     }
 

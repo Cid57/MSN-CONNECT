@@ -45,7 +45,7 @@ body {
 
 @media (max-width: 768px) {
     .gestion-administrateur {
-      
+
         align-items: center;
         text-align: center;
     }
@@ -88,7 +88,7 @@ body {
         max-height: 90vh;
 
     }
-    
+
 }
 
 @media (max-width: 480px) {
@@ -123,21 +123,25 @@ body {
         font-size: 13px;
         margin-top: 20px;
     }
+
     .gestion-administrateur h1 {
         font-size: 20px;
     }
+
     .gestion-administrateur {
         padding: inherit;
     }
+
     .gestion-administrateur .actions a img {
         height: 30px;
         width: 30px;
     }
+
     .gestion-administrateur img,
     .gestion-administrateur h1 {
         margin: 5px 0;
     }
-   
+
 }
 
 
@@ -195,6 +199,7 @@ body {
 .contact-list li:hover {
     background-color: #f1f1f1;
     transform: translateY(-2px);
+    cursor: pointer;
 }
 
 .contact-details {

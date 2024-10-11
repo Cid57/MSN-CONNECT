@@ -30,7 +30,9 @@ if (isset($_POST['reset_password'])) {
         $requete->execute([$email, $token, $expires]);
 
         // Créer le lien de réinitialisation
-        $reset_link = "http://msn-connect/reset_password.php?token=" . $token . "&email=" . urlencode($email);
+        $reset_link = "http://msn-connect/?page=reset_password&token=" . $token . "&email=" . urlencode($email);
+
+
 
         // Préparer l'email
         $to = $email;

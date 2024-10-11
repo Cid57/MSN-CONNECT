@@ -35,7 +35,7 @@
                 </div>
                 <div class="grid-item">
                     <img src="assets/img/supprimer-user.png" alt="Icone supprimer user">
-                    <a href="/?page=admin-supprimer-utilisateur"><input type="button" value="Supprimer utilisateur"></a>
+                    <a href="/?page=admin-supprimer-utilisateur"><input type="button" value="Désactivé utilisateur"></a>
                 </div>
             </div>
         </div>

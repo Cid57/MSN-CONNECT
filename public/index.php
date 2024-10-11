@@ -11,7 +11,7 @@ $chemin = "../src/pages/$page.php";
 
 
 //Cette partie détermine quel modèle de mise en page utiliser en fonction de la page demandée. Si la page est connexion ou mdp-reset, elle utilise layout-deconnecte. Sinon, elle utilise layout-connecte.
-$pagesDeConnexion = ['connexion', 'mdp-reset'];
+$pagesDeConnexion = ['connexion', 'mdp-reset', 'reset_password'];
 $layout = in_array($page, $pagesDeConnexion) ? 'layout-deconnecte' : 'layout-connecte';
 
 

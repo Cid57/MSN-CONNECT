@@ -35,6 +35,7 @@ header {
     background-color: #171C32;
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 99px;
 }
 
 header nav {
@@ -42,7 +43,7 @@ header nav {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 20px;
 }
 
@@ -145,12 +146,11 @@ header nav {
     transition: transform 0.3s;
 }
 
-/* Sidebar */
+
 .sidebar-left {
     background-color: #171c32;
     width: 260px;
-    /* height: 87.6vh; */
-    height: 100vh;
+    min-height: calc(100vh - 100px);
     float: left;
     display: flex;
     flex-direction: column;
@@ -295,6 +295,11 @@ span {
 
 /* Media Queries pour responsivité */
 @media (max-width: 480px) {
+    .header {
+        height: 150px;
+    }
+
+
     .container {
         flex-direction: column;
     }
@@ -335,7 +340,7 @@ span {
         width: 50px;
     }
 
-   
+
 
     .menu-list img {
         width: 40px;
@@ -382,13 +387,18 @@ span {
         height: 44px;
         width: 60px;
     }
+
+    .header {
+        height: 150px;
+    }
+
     .logo-container h1 {
         margin-left: 13px;
     }
 
     .menu-list {
-     padding-top: 20px;
-     padding-left: 60px;
+        padding-top: 20px;
+        padding-left: 60px;
     }
 
 
@@ -439,6 +449,10 @@ span {
         flex-direction: column;
     }
 
+    .header {
+        height: 150px;
+    }
+
     .message-container {
         padding: 0.5rem;
     }
@@ -475,6 +489,8 @@ span {
     button {
         padding: 0.4rem;
     }
+
+
 }
 
 @media (max-width: 768px) {
@@ -564,15 +580,7 @@ span {
 }
 
 /* Ajout de styles responsives pour les éléments <h4> */
-@media (max-width: 768px) {
 
-    .top-block h4,
-    .bottom-block h4 {
-        font-size: 1.2rem;
-        padding: 0.8rem;
-
-    }
-}
 
 @media (max-width: 480px) {
 
@@ -584,12 +592,47 @@ span {
     }
 }
 
+@media (max-width: 1366px) {
+    .logo-container h1 {
+        font-family: 'Sedan SC', serif;
+        font-size: 1.3rem;
+        margin: 0;
+    }
 
+    .menu-list h4 {
+        font-size: 1.2rem;
+    }
+
+    .menu-list img {
+        height: 35px;
+        width: 35px;
+        border-radius: 100%;
+    }
+
+    header {
+        height: 80px;
+    }
+
+    header nav {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+
+
+}
 
 
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+
+    .top-block h4,
+    .bottom-block h4 {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+
+    }
+
     .logo-container h1 {
         font-size: 1.2rem;
     }
@@ -623,12 +666,12 @@ span {
     }
 
     .menu-list {
-   
+
         width: 100%;
     }
 
     .menu-list a {
-       
+
         align-items: center;
     }
 

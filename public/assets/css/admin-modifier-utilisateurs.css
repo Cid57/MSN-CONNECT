@@ -52,7 +52,7 @@ body {
 /* Adaptation pour les petits écrans */
 @media (max-width: 768px) {
     .gestion-administrateur {
-    
+
         align-items: center;
         text-align: center;
     }
@@ -79,8 +79,8 @@ body {
 .recherche-barre {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
     width: 50%;
+    margin-top: 80px;
 }
 
 .recherche-barre input {
@@ -131,12 +131,12 @@ body {
 /* Conteneur du tableau */
 .table-container {
     width: 70%;
-    margin: auto;
+    margin: 5rem auto;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    max-height: 500px;
+    max-height: 600px;
     overflow-y: auto;
 }
 

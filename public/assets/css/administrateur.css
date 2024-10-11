@@ -50,70 +50,115 @@ body {
     transform: scale(1.1);
 }
 
-@media (max-width: 480px) {
-    .sidebar-left {
-        display: none;
-    }
-          .grid-container {
-              grid-template-columns: 1fr;
-          }
-
+@media (max-width: 1200px) {
     .content {
-        background-color: transparent !important;
+        max-width: 80% !important;
     }
-    .gestion-administrateur h1 {
-            font-size: 20px;
-        }
-    
-        .gestion-administrateur {
-            padding: inherit;
-        }
-    
-        .gestion-administrateur .actions a img {
-            height: 30px;
-            width: 30px;
-        }
-        .administrateur {
-            margin-top: 0 !important;
-        }
-
-        .administrateur h2 {
-            font-size: 25px !important;
-            color: white !important;
-        }
-    
-        .gestion-administrateur img,
-        .gestion-administrateur h1 {
-            margin: 5px 0;
-        }
 }
 
-/* Adaptation pour les petits écrans */
+@media (max-width: 1024px) {
+    .gestion-administrateur h1 {
+        font-size: 28px !important;
+    }
+
+    .content {
+        max-width: 65% !important;
+        padding: 15px !important;
+        gap: 20px !important;
+    }
+
+    .grid-item {
+        padding: 15px !important;
+    }
+
+    .sidebar-left {
+        width: 150px !important;
+    }
+
+    .gestion-administrateur {
+        justify-content: center !important;
+    }
+
+    .gestion-administrateur img,
+    .gestion-administrateur .actions {
+        margin: 5px !important;
+    }
+}
+
 @media (max-width: 768px) {
     .gestion-administrateur {
-    
-        align-items: center;
-        text-align: center;
+        align-items: center !important;
+        text-align: center !important;
     }
 
     .gestion-administrateur img,
     .gestion-administrateur h1 {
-        margin: 10px 0;
+        margin: 10px 0 !important;
     }
 
     .gestion-administrateur .actions {
-        margin-top: 10px;
+        margin-top: 10px !important;
+    }
+
+    .administrateur h2 {
+        font-size: 22px !important;
+    }
+
+    .gestion-administrateur h1 {
+        font-size: 24px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-left {
+        display: none !important;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .content {
+        background-color: transparent !important;
+        max-width: 100% !important;
+        padding: 10px !important;
+    }
+
+    .gestion-administrateur h1 {
+        font-size: 20px !important;
+    }
+
+    .gestion-administrateur {
+        padding: inherit !important;
+    }
+
+    .gestion-administrateur .actions a img {
+        height: 30px !important;
+        width: 30px !important;
+    }
+
+    .administrateur {
+        margin-top: 0 !important;
+    }
+
+    .administrateur h2 {
+        font-size: 25px !important;
+        color: white !important;
+    }
+
+    .gestion-administrateur img,
+    .gestion-administrateur h1 {
+        margin: 5px 0 !important;
     }
 }
 
 /* Conteneur principal pour le contenu */
 .content {
-    margin: 2rem auto;
-    max-width: 900px;
+    margin: auto;
+    max-width: 800px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    padding: 25px;
+    padding: 0 20px 0 20px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -122,14 +167,14 @@ body {
 /* Section pour les administrateurs */
 .administrateur {
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .administrateur h2 {
     /* Style du sous-titre des administrateurs */
     color: #4A90E2;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-family: "Sedan SC", serif;
     font-size: 30px;
 }
@@ -185,4 +230,10 @@ body {
     /* Effet au survol des boutons */
     background-color: #357ABD;
     transform: translateY(-4px);
+}
+
+@media (max-width: 1366px) {
+    .gestion-administrateur {
+        font-size: inherit;
+    }
 }

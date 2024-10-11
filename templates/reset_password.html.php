@@ -10,9 +10,9 @@
             <form method="post">
                 <div class="form-group">
                     <label for="new_password">Nouveau mot de passe</label>
-                    <input type="password" id="new_password" name="new_password" required>
+                    <input type="password" id="new_password" name="new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                    <small>Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.</small>
                 </div>
-
                 <div class="form-group">
                     <button type="submit" name="reset_password">Réinitialiser le mot de passe</button>
                 </div>

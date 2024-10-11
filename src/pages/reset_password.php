@@ -1,35 +1,23 @@
 <?php
+// Démarrer la session si elle n'est pas déjà démarrée
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-$message = "";
+if (isset($_GET['email']) && isset($_GET['token'])) {
+    $utilisateur = $dbh->prepare("SELECT * FROM password_reset WHERE email = :email && token = :token");
+    $utilisateur->execute(['email' => $_GET['email'], 'token' => $_GET['token']]);
+    $user = $utilisateur->fetch();
 
-if (isset($_GET['token']) && isset($_GET['email'])) {
-    $token = $_GET['token'];
-    $email = $_GET['email'];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new_password'])) {
 
-    // Vérifier si le token est valide et n'a pas expiré
-    $requete = $dbh->prepare("SELECT * FROM password_reset WHERE email = ? AND token = ? AND expires > ?");
-    $requete->execute([$email, $token, date("U")]);
-    $reset_request = $requete->fetch();
+        if ($user) {
 
-    if ($reset_request) {
-        // Le token est valide, afficher le formulaire de réinitialisation du mot de passe
-        if (isset($_POST['reset_password'])) {
-            $new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
-
-            // Mettre à jour le mot de passe de l'utilisateur
-            $requete = $dbh->prepare("UPDATE utilisateur SET password = ? WHERE email = ?");
-            $requete->execute([$new_password, $email]);
-
-            // Supprimer le token de réinitialisation de la base de données
-            $requete = $dbh->prepare("DELETE FROM password_reset WHERE email = ?");
-            $requete->execute([$email]);
-
-            $message = "Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter.";
+            $stmt = $dbh->prepare("UPDATE utilisateur SET mot_de_passe = :mot_de_passe WHERE email = :email");
+            $stmt->execute(['mot_de_passe' => password_hash($_POST['new_password'], PASSWORD_DEFAULT), 'email' => $user['email']]);
         }
-    } else {
-        $message = "Le lien de réinitialisation est invalide ou a expiré.";
+
+        header('Location: /?page=connexion');
+        exit;
     }
-} else {
-    header('Location: /');
-    exit;
 }
