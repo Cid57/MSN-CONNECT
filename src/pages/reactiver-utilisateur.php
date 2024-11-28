@@ -16,7 +16,7 @@ if ($_SESSION['est_admin'] == 0) {
     exit;
 }
 
-$message = ''; // Initialiser la variable pour les messages
+$message = '';
 
 // Si la méthode de requête est POST et que le bouton de soumission est cliqué
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['submit_button'])) {
